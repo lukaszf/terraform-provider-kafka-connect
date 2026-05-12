@@ -1,4 +1,4 @@
-module github.com/Mongey/terraform-provider-kafka-connect
+module github.com/lukaszf/terraform-provider-kafka-connect
 
 go 1.25.8
 
@@ -38,6 +38,7 @@ require (
 	github.com/hashicorp/terraform-registry-address v0.4.0 // indirect
 	github.com/hashicorp/terraform-svchost v0.1.1 // indirect
 	github.com/hashicorp/yamux v0.1.2 // indirect
+	github.com/lukaszf/go-kafka-connect/v4 v4.0.0 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect

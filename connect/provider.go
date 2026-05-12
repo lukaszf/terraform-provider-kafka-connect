@@ -4,12 +4,13 @@ import (
 	"context"
 	"crypto/tls"
 	"log"
+	"time"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"gopkg.in/resty.v1"
 
-	kc "github.com/ricardo-ch/go-kafka-connect/v3/lib/connectors"
+	kc "github.com/lukaszf/go-kafka-connect/v4/lib/connectors"
 )
 
 func Provider() *schema.Provider {
@@ -73,7 +74,7 @@ func Provider() *schema.Provider {
 func providerConfigure(ctx context.Context, d *schema.ResourceData) (interface{}, diag.Diagnostics) {
 	log.Printf("[INFO] Initializing KafkaConnect client")
 	addr := d.Get("url").(string)
-	c := kc.NewClient(addr)
+	c := kc.NewClient(addr, 60*time.Second)
 	user := d.Get("basic_auth_username").(string)
 	pass := d.Get("basic_auth_password").(string)
 	if user != "" && pass != "" {
