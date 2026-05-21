@@ -8,8 +8,8 @@ A [Terraform][1] plugin for managing [Apache Kafka Connect][2].
 terraform {
   required_providers {
     kafka-connect = {
-      source  = "Mongey/kafka-connect"
-      version = "0.4.3"
+      source  = "lukaszf/kafka-connect"
+      version = "1.0.0"
     }
   }
 }
@@ -27,8 +27,8 @@ Configure the provider directly, or set the ENV variable `KAFKA_CONNECT_URL`
 terraform {
   required_providers {
     kafka-connect = {
-      source  = "Mongey/kafka-connect"
-      version = "0.4.3"
+      source  = "lukaszf/kafka-connect"
+      version = "1.0.0"
     }
   }
 }

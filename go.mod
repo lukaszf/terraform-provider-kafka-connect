@@ -3,13 +3,14 @@ module github.com/lukaszf/terraform-provider-kafka-connect
 go 1.25.8
 
 require (
+	github.com/Mongey/terraform-provider-kafka-connect v0.5.0
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.40.1
+	github.com/lukaszf/go-kafka-connect/v4 v4.0.0
 	github.com/ricardo-ch/go-kafka-connect/v3 v3.0.0-20221117134721-e033f95963cb
 	gopkg.in/resty.v1 v1.12.0
 )
 
 require (
-	bou.ke/monkey v1.0.2 // indirect
 	github.com/ProtonMail/go-crypto v1.4.1 // indirect
 	github.com/agext/levenshtein v1.2.2 // indirect
 	github.com/apparentlymart/go-textseg/v15 v15.0.0 // indirect
@@ -38,7 +39,6 @@ require (
 	github.com/hashicorp/terraform-registry-address v0.4.0 // indirect
 	github.com/hashicorp/terraform-svchost v0.1.1 // indirect
 	github.com/hashicorp/yamux v0.1.2 // indirect
-	github.com/lukaszf/go-kafka-connect/v4 v4.0.0 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect
