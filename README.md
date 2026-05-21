@@ -1,80 +1,163 @@
 # Terraform Provider Kafka Connect
 
-A Terraform provider for managing Apache Kafka Connect connectors and configurations.
+[![Terraform Registry](https://img.shields.io/badge/dynamic/json?color=blue&label=terraform%20registry&query=%24.version&url=https%3A%2F%2Fregistry.terraform.io%2Fv1%2Fproviders%2Flukaszf%2Fkafka-connect)](https://registry.terraform.io/providers/lukaszf/kafka-connect/latest)
+[![GitHub Release](https://img.shields.io/github/v/release/lukaszf/terraform-provider-kafka-connect)](https://github.com/lukaszf/terraform-provider-kafka-connect/releases/latest)
+[![License](https://img.shields.io/github/license/lukaszf/terraform-provider-kafka-connect)](https://github.com/lukaszf/terraform-provider-kafka-connect/blob/main/LICENSE)
 
-This provider allows you to:
+Terraform provider for managing Apache Kafka Connect connectors and configurations declaratively using the Kafka Connect REST API.
+
+The provider is designed for:
+- Self-managed Kafka Connect clusters
+- Confluent Platform
+- Enterprise CI/CD pipelines
+- GitOps workflows
+- Kubernetes environments
+- Secure Kafka Connect automation
+
+---
+
+# Features
+
 - Create and manage Kafka Connect connectors
-- Configure connector settings
-- Manage sensitive connector configuration securely
-- Configure custom timeouts for connector operations
-- Use Basic Authentication and TLS/mTLS
-- Manage Kafka Connect declaratively with Terraform
+- Declarative connector configuration management
+- Sensitive configuration support
+- Provider-level configurable HTTP timeout
+- Resource-level Terraform operation timeouts
+- Basic Authentication support
+- TLS / mTLS support
+- Custom HTTP headers support
+- Detailed request/response logging
+- Enterprise-ready deployment support
 
 ---
 
 # Installation
 
+## Terraform Registry
+
 ```hcl
 terraform {
   required_providers {
     kafka-connect = {
       source  = "lukaszf/kafka-connect"
-      version = "1.0.0"
+      version = "~> 1.0"
     }
   }
 }
 ```
 
-Terraform will automatically download the provider from the Terraform Registry.
+Terraform automatically downloads the provider from the Terraform Registry.
 
-You can also manually download the latest release from:
+Terraform Registry:
+
+https://registry.terraform.io/providers/lukaszf/kafka-connect/latest
+
+---
+
+## Manual Installation
+
+You can manually download the latest release from GitHub:
 
 https://github.com/lukaszf/terraform-provider-kafka-connect/releases/latest
 
-and extract it into your Terraform plugin directory:
+Extract the binary into:
 
 ```bash
 ~/.terraform.d/plugins/
 ```
 
-This method is especially useful for:
+This installation method is useful for:
 - Offline environments
 - Air-gapped environments
 - Restricted enterprise environments
+- Internal CI/CD platforms
 
 ---
 
-# Example
+# Provider Configuration
 
-Configure the provider directly or use environment variables.
+The provider can be configured directly in Terraform or using environment variables.
 
-## Provider Configuration
+---
+
+## Example Provider Configuration
 
 ```hcl
 terraform {
   required_providers {
     kafka-connect = {
       source  = "lukaszf/kafka-connect"
-      version = "1.0.0"
+      version = "~> 1.0"
     }
   }
 }
 
 provider "kafka-connect" {
-  url = "http://localhost:8083"
+  url = var.kafka_connect_endpoint
+
+  # HTTP client timeout in seconds
+  # Controls how long the provider waits for Kafka Connect REST API responses
+  timeout_seconds = 60
 
   # Optional Basic Authentication
   basic_auth_username = "user"
   basic_auth_password = "password"
 
   # Optional TLS / mTLS
-  tls_auth_crt         = "/tmp/cert.pem"
-  tls_auth_key         = "/tmp/key.pem"
+  tls_auth_crt         = "/tmp/client.crt"
+  tls_auth_key         = "/tmp/client.key"
   tls_auth_is_insecure = true
+
+  # Optional Additional Headers
+  headers = {
+    "X-Environment" = "dev"
+  }
 }
 ```
 
-## Connector Example
+---
+
+# Provider Timeout
+
+The `timeout_seconds` property configures the HTTP client timeout used by the provider when communicating with the Kafka Connect REST API.
+
+Example:
+
+```hcl
+provider "kafka-connect" {
+  url             = var.kafka_connect_endpoint
+  timeout_seconds = 60
+}
+```
+
+This timeout controls:
+- HTTP request timeout
+- REST API communication timeout
+- Network waiting time
+- Kafka Connect API responsiveness
+
+Examples of affected operations:
+- `POST /connectors`
+- `GET /connectors/{name}/status`
+- `PUT /connectors/{name}/config`
+- `DELETE /connectors/{name}`
+
+Typical use cases:
+- Slow Kafka Connect REST API
+- Enterprise proxy environments
+- Kubernetes ingress/load balancers
+- High-latency networks
+- TLS/mTLS communication overhead
+
+Default value:
+
+```hcl
+timeout_seconds = 60
+```
+
+---
+
+# Connector Example
 
 ```hcl
 resource "kafka-connect_connector" "sqlite_sink" {
@@ -91,7 +174,7 @@ resource "kafka-connect_connector" "sqlite_sink" {
   }
 
   config_sensitive = {
-    "connection.password" = "this-should-never-appear-unmasked"
+    "connection.password" = "super-secret-password"
   }
 
   timeouts {
@@ -104,13 +187,111 @@ resource "kafka-connect_connector" "sqlite_sink" {
 
 ---
 
+# Resource Timeouts
+
+The `timeouts {}` block controls how long Terraform waits for the entire resource lifecycle operation to complete.
+
+Example:
+
+```hcl
+resource "kafka-connect_connector" "example" {
+  name = "jdbc-source"
+
+  config = {
+    "connector.class" = "io.confluent.connect.jdbc.JdbcSourceConnector"
+  }
+
+  timeouts {
+    create = "10m"
+    update = "10m"
+    delete = "5m"
+  }
+}
+```
+
+This timeout controls:
+- Full Terraform resource operations
+- Connector startup waiting time
+- Connector deletion waiting time
+- Retries and polling
+- Kafka Connect rebalance waiting time
+- Long-running connector initialization
+
+Typical use cases:
+- JDBC connectors with slow startup
+- Large Kafka Connect clusters
+- Slow external systems/databases
+- Enterprise deployments
+- Connectors requiring long initialization
+
+Default values:
+
+| Operation | Default Timeout |
+|---|---|
+| Create | `60s` |
+| Update | `60s` |
+| Delete | `60s` |
+
+---
+
+# Difference Between `timeout_seconds` and `timeouts {}`
+
+The provider supports two different timeout mechanisms.
+
+These timeouts operate at different layers.
+
+| Property | Purpose | Scope |
+|---|---|---|
+| `timeout_seconds` | HTTP request timeout | Single REST API request |
+| `timeouts {}` | Terraform operation timeout | Entire resource lifecycle operation |
+
+---
+
+## Example
+
+```hcl
+provider "kafka-connect" {
+  url             = var.kafka_connect_endpoint
+  timeout_seconds = 60
+}
+
+resource "kafka-connect_connector" "jdbc" {
+  name = "jdbc-source"
+
+  config = {
+    "connector.class" = "io.confluent.connect.jdbc.JdbcSourceConnector"
+  }
+
+  timeouts {
+    create = "10m"
+    update = "10m"
+    delete = "5m"
+  }
+}
+```
+
+Terraform behavior:
+
+1. Terraform sends HTTP requests to Kafka Connect
+2. Each REST API request can take up to `60 seconds`
+3. Terraform continuously polls connector status
+4. Entire connector creation can take up to `10 minutes`
+
+This means:
+- A single HTTP request cannot hang forever
+- Terraform still supports long-running connector startup processes
+- Connector initialization remains stable in enterprise environments
+
+---
+
 # Environment Variables
 
-The provider can also be configured using environment variables.
+The provider supports configuration through environment variables.
 
-| Property | Environment Variable |
+| Terraform Property | Environment Variable |
 |---|---|
 | `url` | `KAFKA_CONNECT_URL` |
+| `timeout_seconds` | `KAFKA_CONNECT_TIMEOUT_SECONDS` |
 | `basic_auth_username` | `KAFKA_CONNECT_BASIC_AUTH_USERNAME` |
 | `basic_auth_password` | `KAFKA_CONNECT_BASIC_AUTH_PASSWORD` |
 | `tls_auth_crt` | `KAFKA_CONNECT_TLS_AUTH_CRT` |
@@ -124,6 +305,7 @@ The provider can also be configured using environment variables.
 | Property | Type | Description |
 |---|---|---|
 | `url` | String | Kafka Connect REST API URL |
+| `timeout_seconds` | Number | HTTP client timeout in seconds |
 | `basic_auth_username` | String | Username for Basic Authentication |
 | `basic_auth_password` | String | Password for Basic Authentication |
 | `tls_auth_crt` | String | TLS client certificate path |
@@ -146,16 +328,35 @@ The provider can also be configured using environment variables.
 
 ---
 
-# Timeouts
+# Logging
 
-The `kafka-connect_connector` resource supports configurable timeouts.
+The provider outputs detailed HTTP request and response logs during:
+- Create
+- Read
+- Update
+- Delete
+
+This is useful for:
+- Debugging Kafka Connect API issues
+- Troubleshooting enterprise environments
+- CI/CD diagnostics
+- Long-running connector operations
+
+---
+
+# Recommended Enterprise Configuration
 
 ```hcl
+provider "kafka-connect" {
+  url             = var.kafka_connect_endpoint
+  timeout_seconds = 60
+}
+
 resource "kafka-connect_connector" "example" {
-  name = "my-connector"
+  name = "example"
 
   config = {
-    "connector.class" = "FileStreamSink"
+    "connector.class" = "FileStreamSource"
   }
 
   timeouts {
@@ -166,10 +367,12 @@ resource "kafka-connect_connector" "example" {
 }
 ```
 
-Default timeout values:
-- Create: `60s`
-- Update: `60s`
-- Delete: `60s`
+This configuration provides:
+- Stable REST API communication
+- Better CI/CD reliability
+- Better Kubernetes compatibility
+- Better handling of Kafka Connect rebalance operations
+- Improved support for slow enterprise systems
 
 ---
 
@@ -181,6 +384,8 @@ Default timeout values:
 - Terraform
 - Kafka Connect cluster
 
+---
+
 ## Clone Repository
 
 ```bash
@@ -189,17 +394,23 @@ git clone https://github.com/lukaszf/terraform-provider-kafka-connect.git
 cd terraform-provider-kafka-connect
 ```
 
+---
+
 ## Build Provider
 
 ```bash
 make build
 ```
 
-## Run Tests
+---
+
+## Run Unit Tests
 
 ```bash
 make test
 ```
+
+---
 
 ## Run Acceptance Tests
 
@@ -209,7 +420,19 @@ make testacc
 
 ---
 
-# Release
+# Local Development Installation
+
+To build and install the provider locally:
+
+```bash
+make install
+```
+
+Terraform will then use the locally compiled provider binary.
+
+---
+
+# Release Process
 
 To create a new release:
 
@@ -218,11 +441,55 @@ git tag v1.0.0
 git push origin v1.0.0
 ```
 
-GitHub Actions will automatically:
-- Build binaries
-- Generate checksums
+GitHub Actions automatically:
+- Build provider binaries
+- Generate SHA256 checksums
 - Sign artifacts using GPG
-- Create a GitHub Release
+- Publish GitHub Releases
+- Publish to Terraform Registry
+
+---
+
+# Supported Authentication Methods
+
+| Authentication | Supported |
+|---|---|
+| No Authentication | Yes |
+| Basic Authentication | Yes |
+| TLS | Yes |
+| mTLS | Yes |
+
+---
+
+# Supported Platforms
+
+| OS | Architecture |
+|---|---|
+| Linux | amd64 / arm64 |
+| macOS | amd64 / arm64 |
+| Windows | amd64 |
+
+---
+
+# Roadmap
+
+Planned features:
+- Connector pause/resume support
+- Connector restart support
+- Kafka Connect plugin management
+- Connector status data source
+- OAuth/OIDC authentication
+- Improved drift detection
+
+---
+
+# Contributing
+
+Contributions are welcome.
+
+Please open issues and pull requests on GitHub:
+
+https://github.com/lukaszf/terraform-provider-kafka-connect
 
 ---
 
