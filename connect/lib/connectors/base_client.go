@@ -11,7 +11,6 @@ import (
 	"gopkg.in/resty.v1"
 )
 
-// BaseClient implements the Kafka Connect client contract.
 type BaseClient interface {
 	GetAll() (GetAllConnectorsResponse, error)
 	GetConnector(req ConnectorRequest) (ConnectorResponse, error)
@@ -38,12 +37,31 @@ type baseClient struct {
 	restClient *resty.Client
 }
 
+func newBaseClient(baseURL string, timeoutOptional ...time.Duration) BaseClient {
+	baseURL = strings.TrimRight(strings.TrimSpace(baseURL), "/")
+
+	timeout := 10 * time.Second
+	if len(timeoutOptional) > 0 {
+		timeout = timeoutOptional[0]
+	}
+
+	restClient := resty.New().
+		SetError(ErrorResponse{}).
+		SetHostURL(baseURL).
+		SetHeader("Accept", "application/json").
+		SetRetryCount(5).
+		SetRetryWaitTime(500 * time.Millisecond).
+		SetRetryMaxWaitTime(5 * time.Second).
+		SetTimeout(timeout).
+		AddRetryCondition(func(resp *resty.Response) (bool, error) {
+			return resp != nil && resp.StatusCode() == 409, nil
+		})
+
+	return &baseClient{restClient: restClient}
+}
+
 func (c *baseClient) SetInsecureSSL() {
-	c.restClient.SetTLSClientConfig(
-		&tls.Config{
-			InsecureSkipVerify: true,
-		},
-	)
+	c.restClient.SetTLSClientConfig(&tls.Config{InsecureSkipVerify: true})
 }
 
 func (c *baseClient) SetDebug() {
@@ -62,81 +80,34 @@ func (c *baseClient) SetHeader(name string, value string) {
 	c.restClient.SetHeader(name, value)
 }
 
-// ErrorResponse is a generic error returned by Kafka Connect.
 type ErrorResponse struct {
 	ErrorCode int    `json:"error_code,omitempty"`
 	Message   string `json:"message,omitempty"`
 }
 
 func (err ErrorResponse) Error() string {
-	return fmt.Sprintf(
-		"error code: %d, message: %s",
-		err.ErrorCode,
-		err.Message,
-	)
+	return fmt.Sprintf("error code: %d, message: %s", err.ErrorCode, err.Message)
 }
 
-func newBaseClient(
-	baseURL string,
-	timeoutOptional ...time.Duration,
-) BaseClient {
-
-	baseURL = strings.TrimRight(
-		strings.TrimSpace(baseURL),
-		"/",
-	)
-
-	timeout := 10 * time.Second
-
-	if len(timeoutOptional) > 0 {
-		timeout = timeoutOptional[0]
-	}
-
-	restClient := resty.New().
-		SetError(ErrorResponse{}).
-		SetHostURL(baseURL).
-		SetHeader("Accept", "application/json").
-		SetRetryCount(5).
-		SetRetryWaitTime(500 * time.Millisecond).
-		SetRetryMaxWaitTime(5 * time.Second).
-		SetTimeout(timeout).
-		AddRetryCondition(func(resp *resty.Response) (bool, error) {
-			return resp != nil && resp.StatusCode() == 409, nil
-		})
-
-	return &baseClient{
-		restClient: restClient,
-	}
-}
-
-// -----------------------------------------------------------------------------
-// Connectors
-// -----------------------------------------------------------------------------
-
-// ConnectorRequest is a generic request for connector endpoints.
 type ConnectorRequest struct {
 	Name string `json:"name"`
 }
 
-// EmptyResponse is returned when only HTTP status matters.
 type EmptyResponse struct {
 	Code int
 	ErrorResponse
 }
 
-// CreateConnectorRequest is used to create connectors.
 type CreateConnectorRequest struct {
 	ConnectorRequest
 	Config map[string]interface{} `json:"config"`
 }
 
-// GetAllConnectorsResponse returns all connectors.
 type GetAllConnectorsResponse struct {
 	EmptyResponse
 	Connectors []string
 }
 
-// ConnectorResponse is the generic connector response.
 type ConnectorResponse struct {
 	EmptyResponse
 	Name   string                 `json:"name"`
@@ -144,13 +115,11 @@ type ConnectorResponse struct {
 	Tasks  []TaskID               `json:"tasks"`
 }
 
-// GetConnectorConfigResponse returns connector config.
 type GetConnectorConfigResponse struct {
 	EmptyResponse
 	Config map[string]interface{}
 }
 
-// GetConnectorStatusResponse returns connector status.
 type GetConnectorStatusResponse struct {
 	EmptyResponse
 	Name            string            `json:"name"`
@@ -158,7 +127,6 @@ type GetConnectorStatusResponse struct {
 	TasksStatus     []TaskStatus      `json:"tasks"`
 }
 
-// GetAll returns all active connectors.
 func (c *baseClient) GetAll() (GetAllConnectorsResponse, error) {
 	result := GetAllConnectorsResponse{}
 	var connectors []string
@@ -166,153 +134,192 @@ func (c *baseClient) GetAll() (GetAllConnectorsResponse, error) {
 	resp, err := c.restClient.NewRequest().
 		SetResult(&connectors).
 		Get("/connectors")
-
 	if err != nil {
 		return result, err
 	}
 
 	if resp.StatusCode() >= 400 {
-		return result, errors.Errorf(
-			"get all connectors failed: %s",
-			resp.String(),
-		)
+		return result, errors.Errorf("get all connectors failed: %s", resp.String())
 	}
 
 	result.Code = resp.StatusCode()
 	result.Connectors = connectors
-
 	return result, nil
 }
 
-// GetConnector returns connector details.
-func (c *baseClient) GetConnector(
-	req ConnectorRequest,
-) (ConnectorResponse, error) {
-
+func (c *baseClient) GetConnector(req ConnectorRequest) (ConnectorResponse, error) {
 	result := ConnectorResponse{}
 
 	resp, err := c.restClient.NewRequest().
 		SetResult(&result).
-		SetPathParams(
-			map[string]string{
-				"name": req.Name,
-			},
-		).
+		SetPathParams(map[string]string{"name": req.Name}).
 		Get("/connectors/{name}")
-
 	if err != nil {
 		return result, err
 	}
 
-	if resp.StatusCode() >= 400 &&
-		resp.StatusCode() != 404 {
-		return result, errors.Errorf(
-			"get connector failed: %s",
-			resp.String(),
-		)
+	if resp.StatusCode() >= 400 && resp.StatusCode() != 404 {
+		return result, errors.Errorf("get connector failed: %s", resp.String())
 	}
 
 	result.Code = resp.StatusCode()
-
 	return result, nil
 }
 
-// CreateConnector creates a connector.
-func (c *baseClient) CreateConnector(
-	req CreateConnectorRequest,
-) (ConnectorResponse, error) {
-
+func (c *baseClient) CreateConnector(req CreateConnectorRequest) (ConnectorResponse, error) {
 	result := ConnectorResponse{}
 
 	resp, err := c.restClient.NewRequest().
 		SetBody(req).
 		SetResult(&result).
 		Post("/connectors")
-
 	if err != nil {
 		return result, err
 	}
 
 	if resp.StatusCode() >= 400 {
-		return result, errors.Errorf(
-			"create connector failed: %s",
-			resp.String(),
-		)
+		return result, errors.Errorf("create connector failed: %s", resp.String())
 	}
 
 	result.Code = resp.StatusCode()
-
 	return result, nil
 }
 
-// UpdateConnector updates connector configuration.
-func (c *baseClient) UpdateConnector(
-	req CreateConnectorRequest,
-) (ConnectorResponse, error) {
-
+func (c *baseClient) UpdateConnector(req CreateConnectorRequest) (ConnectorResponse, error) {
 	result := ConnectorResponse{}
 
 	resp, err := c.restClient.NewRequest().
-		SetPathParams(
-			map[string]string{
-				"name": req.Name,
-			},
-		).
+		SetPathParams(map[string]string{"name": req.Name}).
 		SetBody(req.Config).
 		SetResult(&result).
 		Put("/connectors/{name}/config")
-
 	if err != nil {
 		return result, err
 	}
 
 	if resp.StatusCode() >= 400 {
-		return result, errors.Errorf(
-			"update connector failed: %s",
-			resp.String(),
-		)
+		return result, errors.Errorf("update connector failed: %s", resp.String())
 	}
 
 	result.Code = resp.StatusCode()
-
 	return result, nil
 }
 
-// DeleteConnector deletes a connector.
-func (c *baseClient) DeleteConnector(
-	req ConnectorRequest,
-) (EmptyResponse, error) {
-
+func (c *baseClient) DeleteConnector(req ConnectorRequest) (EmptyResponse, error) {
 	result := EmptyResponse{}
 
 	resp, err := c.restClient.NewRequest().
 		SetResult(&result).
-		SetPathParams(
-			map[string]string{
-				"name": req.Name,
-			},
-		).
+		SetPathParams(map[string]string{"name": req.Name}).
 		Delete("/connectors/{name}")
+	if err != nil {
+		return result, err
+	}
 
+	if resp.StatusCode() >= 400 && resp.StatusCode() != 404 {
+		return result, errors.Errorf("delete connector failed: %s", resp.String())
+	}
+
+	result.Code = resp.StatusCode()
+	return result, nil
+}
+
+func (c *baseClient) GetConnectorConfig(req ConnectorRequest) (GetConnectorConfigResponse, error) {
+	result := GetConnectorConfigResponse{}
+	var config map[string]interface{}
+
+	resp, err := c.restClient.NewRequest().
+		SetResult(&config).
+		SetPathParams(map[string]string{"name": req.Name}).
+		Get("/connectors/{name}/config")
+	if err != nil {
+		return result, err
+	}
+
+	if resp.StatusCode() >= 400 && resp.StatusCode() != 404 {
+		return result, errors.Errorf("get connector config failed: %s", resp.String())
+	}
+
+	result.Code = resp.StatusCode()
+	result.Config = config
+	return result, nil
+}
+
+func (c *baseClient) GetConnectorStatus(req ConnectorRequest) (GetConnectorStatusResponse, error) {
+	result := GetConnectorStatusResponse{}
+
+	resp, err := c.restClient.NewRequest().
+		SetResult(&result).
+		SetPathParams(map[string]string{"name": req.Name}).
+		Get("/connectors/{name}/status")
+	if err != nil {
+		return result, err
+	}
+
+	if resp.StatusCode() >= 400 && resp.StatusCode() != 404 {
+		return result, errors.Errorf("get connector status failed: %s", resp.String())
+	}
+
+	result.Code = resp.StatusCode()
+	return result, nil
+}
+
+func (c *baseClient) RestartConnector(req ConnectorRequest) (EmptyResponse, error) {
+	result := EmptyResponse{}
+
+	resp, err := c.restClient.NewRequest().
+		SetResult(&result).
+		SetPathParams(map[string]string{"name": req.Name}).
+		Post("/connectors/{name}/restart")
 	if err != nil {
 		return result, err
 	}
 
 	if resp.StatusCode() >= 400 {
-		return result, errors.Errorf(
-			"delete connector failed: %s",
-			resp.String(),
-		)
+		return result, errors.Errorf("restart connector failed: %s", resp.String())
 	}
 
 	result.Code = resp.StatusCode()
-
 	return result, nil
 }
 
-// -----------------------------------------------------------------------------
-// Tasks
-// -----------------------------------------------------------------------------
+func (c *baseClient) PauseConnector(req ConnectorRequest) (EmptyResponse, error) {
+	result := EmptyResponse{}
+
+	resp, err := c.restClient.NewRequest().
+		SetResult(&result).
+		SetPathParams(map[string]string{"name": req.Name}).
+		Put("/connectors/{name}/pause")
+	if err != nil {
+		return result, err
+	}
+
+	if resp.StatusCode() >= 400 {
+		return result, errors.Errorf("pause connector failed: %s", resp.String())
+	}
+
+	result.Code = resp.StatusCode()
+	return result, nil
+}
+
+func (c *baseClient) ResumeConnector(req ConnectorRequest) (EmptyResponse, error) {
+	result := EmptyResponse{}
+
+	resp, err := c.restClient.NewRequest().
+		SetResult(&result).
+		SetPathParams(map[string]string{"name": req.Name}).
+		Put("/connectors/{name}/resume")
+	if err != nil {
+		return result, err
+	}
+
+	if resp.StatusCode() >= 400 {
+		return result, errors.Errorf("resume connector failed: %s", resp.String())
+	}
+
+	result.Code = resp.StatusCode()
+	return result, nil
+}
 
 type TaskRequest struct {
 	Connector string
@@ -346,101 +353,65 @@ type TaskStatus struct {
 	Trace    string `json:"trace,omitempty"`
 }
 
-// GetAllTasks returns connector tasks.
-func (c *baseClient) GetAllTasks(
-	req ConnectorRequest,
-) (GetAllTasksResponse, error) {
-
+func (c *baseClient) GetAllTasks(req ConnectorRequest) (GetAllTasksResponse, error) {
 	var result GetAllTasksResponse
 
 	resp, err := c.restClient.NewRequest().
 		SetResult(&result.Tasks).
-		SetPathParams(
-			map[string]string{
-				"name": req.Name,
-			},
-		).
+		SetPathParams(map[string]string{"name": req.Name}).
 		Get("/connectors/{name}/tasks")
-
 	if err != nil {
 		return result, err
 	}
 
 	if resp.StatusCode() >= 400 {
-		return result, errors.Errorf(
-			"get all tasks failed: %s",
-			resp.String(),
-		)
+		return result, errors.Errorf("get all tasks failed: %s", resp.String())
 	}
 
 	result.Code = resp.StatusCode()
-
 	return result, nil
 }
 
-// GetTaskStatus returns task status.
-func (c *baseClient) GetTaskStatus(
-	req TaskRequest,
-) (TaskStatusResponse, error) {
-
+func (c *baseClient) GetTaskStatus(req TaskRequest) (TaskStatusResponse, error) {
 	var result TaskStatusResponse
 
 	resp, err := c.restClient.NewRequest().
 		SetResult(&result).
-		SetPathParams(
-			map[string]string{
-				"name":    req.Connector,
-				"task_id": strconv.Itoa(req.TaskID),
-			},
-		).
+		SetPathParams(map[string]string{
+			"name":    req.Connector,
+			"task_id": strconv.Itoa(req.TaskID),
+		}).
 		Get("/connectors/{name}/tasks/{task_id}/status")
-
 	if err != nil {
 		return result, err
 	}
 
-	if resp.StatusCode() >= 400 &&
-		resp.StatusCode() != 404 {
-		return result, errors.Errorf(
-			"get task status failed: %s",
-			resp.String(),
-		)
+	if resp.StatusCode() >= 400 && resp.StatusCode() != 404 {
+		return result, errors.Errorf("get task status failed: %s", resp.String())
 	}
 
 	result.Code = resp.StatusCode()
-
 	return result, nil
 }
 
-// RestartTask restarts a connector task.
-func (c *baseClient) RestartTask(
-	req TaskRequest,
-) (EmptyResponse, error) {
-
+func (c *baseClient) RestartTask(req TaskRequest) (EmptyResponse, error) {
 	var result EmptyResponse
 
 	resp, err := c.restClient.NewRequest().
 		SetResult(&result).
-		SetPathParams(
-			map[string]string{
-				"name":    req.Connector,
-				"task_id": strconv.Itoa(req.TaskID),
-			},
-		).
+		SetPathParams(map[string]string{
+			"name":    req.Connector,
+			"task_id": strconv.Itoa(req.TaskID),
+		}).
 		Post("/connectors/{name}/tasks/{task_id}/restart")
-
 	if err != nil {
 		return result, err
 	}
 
 	if resp.StatusCode() >= 400 {
-		return result, errors.Errorf(
-			"restart task failed: %s",
-			resp.String(),
-		)
+		return result, errors.Errorf("restart task failed: %s", resp.String())
 	}
 
 	result.Code = resp.StatusCode()
-
 	return result, nil
 }
