@@ -1,8 +1,18 @@
-# `terraform-plugin-kafka-connect`
-[![test](https://github.com/Mongey/terraform-provider-kafka-connect/actions/workflows/test.yml/badge.svg)](https://github.com/Mongey/terraform-provider-kafka-connect/actions/workflows/test.yml)
+# Terraform Provider Kafka Connect
 
-A [Terraform][1] plugin for managing [Apache Kafka Connect][2].
-## Installation
+A Terraform provider for managing Apache Kafka Connect connectors and configurations.
+
+This provider allows you to:
+- Create and manage Kafka Connect connectors
+- Configure connector settings
+- Manage sensitive connector configuration securely
+- Configure custom timeouts for connector operations
+- Use Basic Authentication and TLS/mTLS
+- Manage Kafka Connect declaratively with Terraform
+
+---
+
+# Installation
 
 ```hcl
 terraform {
@@ -15,15 +25,32 @@ terraform {
 }
 ```
 
-Or download and extract the [latest release](https://github.com/Mongey/terraform-provider-kafka-connect/releases/latest) to your [Terraform plugin directory][third-party-plugins] (typically `~/.terraform.d/plugins/`).
+Terraform will automatically download the provider from the Terraform Registry.
 
-This method is especially useful for offline environments where Terraform cannot automatically download the provider.
+You can also manually download the latest release from:
 
-## Example
+https://github.com/lukaszf/terraform-provider-kafka-connect/releases/latest
 
-Configure the provider directly, or set the ENV variable `KAFKA_CONNECT_URL`
+and extract it into your Terraform plugin directory:
+
+```bash
+~/.terraform.d/plugins/
+```
+
+This method is especially useful for:
+- Offline environments
+- Air-gapped environments
+- Restricted enterprise environments
+
+---
+
+# Example
+
+Configure the provider directly or use environment variables.
+
+## Provider Configuration
+
 ```hcl
-
 terraform {
   required_providers {
     kafka-connect = {
@@ -33,25 +60,30 @@ terraform {
   }
 }
 
-
 provider "kafka-connect" {
   url = "http://localhost:8083"
-  basic_auth_username = "user" # Optional
-  basic_auth_password = "password" # Optional
-  
-  # For TLS
-  tls_auth_crt = "/tmp/cert.pem" # Optional
-  tls_auth_key = "/tmp/key.pem " # Optional
-  tls_auth_is_insecure = true   # Optionnal if you do not want to check CA   
-}
 
-resource "kafka-connect_connector" "sqlite-sink" {
+  # Optional Basic Authentication
+  basic_auth_username = "user"
+  basic_auth_password = "password"
+
+  # Optional TLS / mTLS
+  tls_auth_crt         = "/tmp/cert.pem"
+  tls_auth_key         = "/tmp/key.pem"
+  tls_auth_is_insecure = true
+}
+```
+
+## Connector Example
+
+```hcl
+resource "kafka-connect_connector" "sqlite_sink" {
   name = "sqlite-sink"
 
   config = {
     "name"            = "sqlite-sink"
     "connector.class" = "io.confluent.connect.jdbc.JdbcSinkConnector"
-    "tasks.max"       = 1
+    "tasks.max"       = "1"
     "topics"          = "orders"
     "connection.url"  = "jdbc:sqlite:test.db"
     "auto.create"     = "true"
@@ -61,60 +93,142 @@ resource "kafka-connect_connector" "sqlite-sink" {
   config_sensitive = {
     "connection.password" = "this-should-never-appear-unmasked"
   }
-}
-```
-
-## Provider Properties
-
-| Property              | Type   | Example                 | Alternative environment variable name |
-|-----------------------|--------|-------------------------|---------------------------------------|
-| `url`                 | URL    | "http://localhost:8083" | `KAFKA_CONNECT_URL`                   |
-| `basic_auth_username` | String | "user"                  | `KAFKA_CONNECT_BASIC_AUTH_USERNAME`   |
-| `basic_auth_password` | String | "password"              | `KAFKA_CONNECT_BASIC_AUTH_PASSWORD`   |
-| `tls_auth_crt`        | String | "certificate"           | `KAFKA_CONNECT_TLS_AUTH_CRT`          |
-| `tls_auth_key`        | String | "Key"                   | `KAFKA_CONNECT_TLS_AUTH_KEY`          |
-| `tls_auth_is_insecure`| String | "Key"                   | `KAFKA_CONNECT_TLS_IS_INSECURE`       |
-| `headers`             | Map[String]String | {foo = "bar"}           | N/A                                   |
-
-## Resource Properties
-
-| Property              | Type      | Description                                                          |
-|-----------------------|-----------|----------------------------------------------------------------------|
-| `name`                | String    | Connector name                                                       |
-| `config`              | HCL Block | Connector configuration                                              |
-| `config_sensitive`    | HCL Block | Sensitive connector configuration. Will be masked in output.         |
-| `timeouts`            | HCL Block | Configurable timeouts (create, update, delete). See below.           |
-
-### Timeouts
-
-The `kafka-connect_connector` resource supports configurable timeouts:
-
-```hcl
-resource "kafka-connect_connector" "example" {
-  name = "my-connector"
-  # ... config ...
 
   timeouts {
-    create = "10m"  # Default: 60s
-    update = "10m"  # Default: 60s - increase for large clusters with many connectors
-    delete = "5m"   # Default: 60s
+    create = "10m"
+    update = "10m"
+    delete = "5m"
   }
 }
 ```
 
-## Developing
+---
 
-0. [Install go][install-go]
-0. Clone repository to: `$GOPATH/src/github.com/Mongey/terraform-provider-kafka-connect`
-    ``` bash
-    mkdir -p $GOPATH/src/github.com/Mongey/terraform-provider-kafka-connect; cd $GOPATH/src/github.com/Mongey/
-    git clone https://github.com/Mongey/terraform-provider-kafka-connect.git
-    ```
-0. Build the provider `make build`
-0. Run the tests `make test`
-0. Run acceptance tests `make testacc`
+# Environment Variables
 
-[1]: https://www.terraform.io
-[2]: https://kafka.apache.org/documentation/#connect
-[third-party-plugins]: https://www.terraform.io/docs/configuration/providers.html#third-party-plugins
-[install-go]: https://golang.org/doc/install#install
+The provider can also be configured using environment variables.
+
+| Property | Environment Variable |
+|---|---|
+| `url` | `KAFKA_CONNECT_URL` |
+| `basic_auth_username` | `KAFKA_CONNECT_BASIC_AUTH_USERNAME` |
+| `basic_auth_password` | `KAFKA_CONNECT_BASIC_AUTH_PASSWORD` |
+| `tls_auth_crt` | `KAFKA_CONNECT_TLS_AUTH_CRT` |
+| `tls_auth_key` | `KAFKA_CONNECT_TLS_AUTH_KEY` |
+| `tls_auth_is_insecure` | `KAFKA_CONNECT_TLS_IS_INSECURE` |
+
+---
+
+# Provider Properties
+
+| Property | Type | Description |
+|---|---|---|
+| `url` | String | Kafka Connect REST API URL |
+| `basic_auth_username` | String | Username for Basic Authentication |
+| `basic_auth_password` | String | Password for Basic Authentication |
+| `tls_auth_crt` | String | TLS client certificate path |
+| `tls_auth_key` | String | TLS client private key path |
+| `tls_auth_is_insecure` | Bool | Skip TLS certificate verification |
+| `headers` | Map(String) | Additional HTTP headers |
+
+---
+
+# Resource Properties
+
+## kafka-connect_connector
+
+| Property | Type | Description |
+|---|---|---|
+| `name` | String | Connector name |
+| `config` | Map(String) | Connector configuration |
+| `config_sensitive` | Map(String) | Sensitive connector configuration |
+| `timeouts` | Block | Custom create/update/delete timeouts |
+
+---
+
+# Timeouts
+
+The `kafka-connect_connector` resource supports configurable timeouts.
+
+```hcl
+resource "kafka-connect_connector" "example" {
+  name = "my-connector"
+
+  config = {
+    "connector.class" = "FileStreamSink"
+  }
+
+  timeouts {
+    create = "10m"
+    update = "10m"
+    delete = "5m"
+  }
+}
+```
+
+Default timeout values:
+- Create: `60s`
+- Update: `60s`
+- Delete: `60s`
+
+---
+
+# Development
+
+## Requirements
+
+- Go 1.24+
+- Terraform
+- Kafka Connect cluster
+
+## Clone Repository
+
+```bash
+git clone https://github.com/lukaszf/terraform-provider-kafka-connect.git
+
+cd terraform-provider-kafka-connect
+```
+
+## Build Provider
+
+```bash
+make build
+```
+
+## Run Tests
+
+```bash
+make test
+```
+
+## Run Acceptance Tests
+
+```bash
+make testacc
+```
+
+---
+
+# Release
+
+To create a new release:
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+GitHub Actions will automatically:
+- Build binaries
+- Generate checksums
+- Sign artifacts using GPG
+- Create a GitHub Release
+
+---
+
+# License
+
+MIT License
+
+Copyright (c) 2018 Conor Mongey  
+Copyright (c) 2026 Łukasz Fedorowiat

@@ -3,7 +3,6 @@ module github.com/lukaszf/terraform-provider-kafka-connect
 go 1.25.8
 
 require (
-	github.com/Mongey/terraform-provider-kafka-connect v0.5.0
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.40.1
 	github.com/lukaszf/go-kafka-connect/v4 v4.0.0
 	github.com/ricardo-ch/go-kafka-connect/v3 v3.0.0-20221117134721-e033f95963cb
