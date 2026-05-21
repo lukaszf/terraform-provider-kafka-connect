@@ -73,42 +73,52 @@ func Provider() *schema.Provider {
 
 func providerConfigure(ctx context.Context, d *schema.ResourceData) (interface{}, diag.Diagnostics) {
 	log.Printf("[INFO] Initializing KafkaConnect client")
+
 	addr := d.Get("url").(string)
+	log.Printf("[INFO] Kafka Connect URL from provider config: %q", addr)
+
+	if addr == "" {
+		return nil, diag.Errorf("Kafka Connect URL is empty. Set provider url or KAFKA_CONNECT_URL")
+	}
+
+	if !strings.HasPrefix(addr, "http://") && !strings.HasPrefix(addr, "https://") {
+		return nil, diag.Errorf("Kafka Connect URL must start with http:// or https://, got: %s", addr)
+	}
+
 	c := kc.NewClient(addr, 60*time.Second)
+
 	user := d.Get("basic_auth_username").(string)
 	pass := d.Get("basic_auth_password").(string)
+
 	if user != "" && pass != "" {
 		c.SetBasicAuth(user, pass)
 	}
 
-	tls_root_ca_file := d.Get("tls_root_ca_file").(string)
-	if tls_root_ca_file != "" {
-		resty.SetRootCertificate(tls_root_ca_file)
+	tlsRootCAFile := d.Get("tls_root_ca_file").(string)
+	if tlsRootCAFile != "" {
+		resty.SetRootCertificate(tlsRootCAFile)
 	}
 
 	crt := d.Get("tls_auth_crt").(string)
 	key := d.Get("tls_auth_key").(string)
-	is_insecure := d.Get("tls_auth_is_insecure").(bool)
-	log.Printf("[INFO]Cert : %s\nKey: %s", crt, key)
-	log.Printf("[INFO]SSl connection is insecure : %t", is_insecure)
+	isInsecure := d.Get("tls_auth_is_insecure").(bool)
+
+	if isInsecure {
+		c.SetInsecureSSL()
+	}
 
 	if crt != "" && key != "" {
 		cert, err := tls.LoadX509KeyPair(crt, key)
 		if err != nil {
-			log.Fatalf("client: loadkeys: %s", err)
-		} else {
-			if is_insecure {
-				c.SetInsecureSSL()
-			}
-			c.SetClientCertificates(cert)
+			return nil, diag.Errorf("failed to load TLS client certificate/key: %s", err)
 		}
+
+		c.SetClientCertificates(cert)
 	}
 
 	headers := d.Get("headers").(map[string]interface{})
-	if headers != nil {
-		for k, v := range headers {
-			c.SetHeader(k, v.(string))
-		}
+	for k, v := range headers {
+		c.SetHeader(k, v.(string))
 	}
 
 	return c, nil
