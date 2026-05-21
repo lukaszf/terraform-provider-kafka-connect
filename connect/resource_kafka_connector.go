@@ -25,9 +25,9 @@ func kafkaConnectorResource() *schema.Resource {
 		},
 
 		Timeouts: &schema.ResourceTimeout{
-			Create: schema.DefaultTimeout(60 * time.Second),
-			Update: schema.DefaultTimeout(60 * time.Second),
-			Delete: schema.DefaultTimeout(60 * time.Second),
+			Create: schema.DefaultTimeout(10 * time.Minute),
+			Update: schema.DefaultTimeout(10 * time.Minute),
+			Delete: schema.DefaultTimeout(5 * time.Minute),
 		},
 
 		Schema: map[string]*schema.Schema{
@@ -51,6 +51,32 @@ func kafkaConnectorResource() *schema.Resource {
 				ForceNew:    false,
 				Sensitive:   true,
 				Description: "A map of sensitive connector configuration properties, such as passwords.",
+			},
+
+			"timeouts": {
+				Type:        schema.TypeList,
+				Optional:    true,
+				MaxItems:    1,
+				Description: "Custom operation timeouts.",
+				Elem: &schema.Resource{
+					Schema: map[string]*schema.Schema{
+						"create": {
+							Type:        schema.TypeString,
+							Optional:    true,
+							Description: "Create timeout, for example 10m.",
+						},
+						"update": {
+							Type:        schema.TypeString,
+							Optional:    true,
+							Description: "Update timeout, for example 10m.",
+						},
+						"delete": {
+							Type:        schema.TypeString,
+							Optional:    true,
+							Description: "Delete timeout, for example 5m.",
+						},
+					},
+				},
 			},
 		},
 	}
@@ -90,11 +116,13 @@ func connectorCreate(d *schema.ResourceData, meta interface{}) error {
 
 	var connectorResponse kc.ConnectorResponse
 
+	timeout := operationTimeout(d, schema.TimeoutCreate, 10*time.Minute)
+
 	err := withRebalanceRetry(func() error {
 		var createErr error
-		connectorResponse, createErr = c.CreateConnector(req, true)
+		connectorResponse, createErr = c.CreateConnector(req, true, timeout)
 		return createErr
-	}, d.Timeout(schema.TimeoutCreate))
+	}, timeout)
 
 	if err != nil {
 		return err
@@ -114,7 +142,7 @@ func connectorCreate(d *schema.ResourceData, meta interface{}) error {
 		return err
 	}
 
-	return readWithRetry(d, meta, d.Timeout(schema.TimeoutCreate))
+	return readWithRetry(d, meta, timeout)
 }
 
 func connectorRead(d *schema.ResourceData, meta interface{}) error {
@@ -180,11 +208,13 @@ func connectorUpdate(d *schema.ResourceData, meta interface{}) error {
 
 	var conn kc.ConnectorResponse
 
+	timeout := operationTimeout(d, schema.TimeoutUpdate, 10*time.Minute)
+
 	err := withRebalanceRetry(func() error {
 		var updateErr error
-		conn, updateErr = c.UpdateConnector(req, true)
+		conn, updateErr = c.UpdateConnector(req, true, timeout)
 		return updateErr
-	}, d.Timeout(schema.TimeoutUpdate))
+	}, timeout)
 
 	if err != nil {
 		return err
@@ -200,7 +230,7 @@ func connectorUpdate(d *schema.ResourceData, meta interface{}) error {
 		return err
 	}
 
-	return readWithRetry(d, meta, d.Timeout(schema.TimeoutUpdate))
+	return readWithRetry(d, meta, timeout)
 }
 
 func connectorDelete(d *schema.ResourceData, meta interface{}) error {
@@ -214,10 +244,12 @@ func connectorDelete(d *schema.ResourceData, meta interface{}) error {
 
 	log.Printf("[INFO] Deleting connector: %s", name)
 
+	timeout := operationTimeout(d, schema.TimeoutDelete, 5*time.Minute)
+
 	err := withRebalanceRetry(func() error {
-		_, deleteErr := c.DeleteConnector(req, true)
+		_, deleteErr := c.DeleteConnector(req, true, timeout)
 		return deleteErr
-	}, d.Timeout(schema.TimeoutDelete))
+	}, timeout)
 
 	if err != nil {
 		return err
@@ -226,6 +258,54 @@ func connectorDelete(d *schema.ResourceData, meta interface{}) error {
 	d.SetId("")
 
 	return nil
+}
+
+func operationTimeout(d *schema.ResourceData, timeoutKey string, fallback time.Duration) time.Duration {
+	timeout := d.Timeout(timeoutKey)
+
+	if timeout > 0 {
+		return timeout
+	}
+
+	raw, ok := d.GetOk("timeouts")
+	if !ok {
+		return fallback
+	}
+
+	items, ok := raw.([]interface{})
+	if !ok || len(items) == 0 {
+		return fallback
+	}
+
+	block, ok := items[0].(map[string]interface{})
+	if !ok {
+		return fallback
+	}
+
+	field := ""
+
+	switch timeoutKey {
+	case schema.TimeoutCreate:
+		field = "create"
+	case schema.TimeoutUpdate:
+		field = "update"
+	case schema.TimeoutDelete:
+		field = "delete"
+	default:
+		return fallback
+	}
+
+	value, ok := block[field].(string)
+	if !ok || strings.TrimSpace(value) == "" {
+		return fallback
+	}
+
+	parsed, err := time.ParseDuration(value)
+	if err != nil {
+		return fallback
+	}
+
+	return parsed
 }
 
 func readWithRetry(d *schema.ResourceData, meta interface{}, timeout time.Duration) error {
