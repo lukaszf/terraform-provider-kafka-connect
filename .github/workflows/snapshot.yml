@@ -5,33 +5,67 @@ on:
     branches:
       - "**"
 
+permissions:
+  contents: read
+
 jobs:
   goreleaser:
     runs-on: ubuntu-latest
+
     steps:
+      ##################################################
+      # Checkout repository
+      ##################################################
       - name: Checkout
-        uses: actions/checkout@v6.0.1
+        uses: actions/checkout@v5
+
+      ##################################################
+      # Setup Go
+      ##################################################
       - name: Set up Go
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
-          go-version: 1.25.8
+          go-version: "1.25.8"
+          cache: true
+
+      ##################################################
+      # Import GPG key
+      ##################################################
       - name: Import GPG key
         id: import_gpg
-        uses: crazy-max/ghaction-import-gpg@v6.2.0
+        uses: crazy-max/ghaction-import-gpg@v6
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
-      - uses: actions/cache@v5.0.1
-        with:
-          path: ~/go/pkg/mod
-          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
-          restore-keys: |
-            ${{ runner.os }}-go
+
+      ##################################################
+      # Clean Go cache (prevents tar/cache corruption)
+      ##################################################
+      - name: Clean Go cache
+        run: |
+          go clean -modcache
+          rm -rf ~/.cache/go-build
+
+      ##################################################
+      # Download dependencies
+      ##################################################
+      - name: Download dependencies
+        run: go mod download
+
+      ##################################################
+      # Run tests
+      ##################################################
+      - name: Run tests
+        run: go test ./... -v
+
+      ##################################################
+      # Run GoReleaser Snapshot
+      ##################################################
       - name: Run GoReleaser
-        uses: goreleaser/goreleaser-action@v4
+        uses: goreleaser/goreleaser-action@v6
         with:
           version: "~> v2"
-          args: release --snapshot
+          args: release --snapshot --clean
         env:
-          GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}

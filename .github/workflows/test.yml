@@ -8,45 +8,80 @@ on:
     branches:
       - master
 
+permissions:
+  contents: read
+
 jobs:
   test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6.0.1
-      - name: Set up Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: 1.25.8
-      - run: make test
-  acctest:
+    name: Unit tests
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6.0.1
+        uses: actions/checkout@v5
+
       - name: Set up Go
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
-          go-version: 1.25.8
-      - uses: actions/cache@v5.0.1
+          go-version: "1.25.8"
+          cache: true
+
+      - name: Run unit tests
+        run: make test
+
+  acctest:
+    name: Acceptance tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Go
+        uses: actions/setup-go@v6
         with:
-          path: ~/go/pkg/mod
-          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
-          restore-keys: |
-            ${{ runner.os }}-go
-      - name: Bring up kafka + zk
+          go-version: "1.25.0"
+          cache: true
+
+      - name: Bring up Kafka Connect environment
         run: docker compose up -d
-      - name: "Run tests"
+
+      - name: Wait for Kafka Connect
+        run: make wait-for-connect
+
+      - name: Install go-junit-report
+        run: go install github.com/jstemmer/go-junit-report/v2@latest
+
+      - name: Run acceptance tests
         run: |
-          export PATH=$PATH:$(go env GOPATH)/bin # temporary fix. See https://github.com/actions/setup-go/issues/14
-          go install github.com/jstemmer/go-junit-report/v2@latest
-          trap "go-junit-report < go-test.out > go-test-report.xml" EXIT
-          make testacc | tee go-test.out
-      - name: Upload test results
-        uses: actions/upload-artifact@v6.0.0
-        with:
-          name: acc-test-results.xml
-          path: go-test-report.xml
-        # Use always() to always run this step to publish test results when there are test failures
+          export PATH="$PATH:$(go env GOPATH)/bin"
+
+          set -o pipefail
+
+          make testacc 2>&1 | tee go-test.out
+
+      - name: Generate JUnit report
         if: always()
+        run: |
+          export PATH="$PATH:$(go env GOPATH)/bin"
+
+          if [ -f go-test.out ]; then
+            go-junit-report < go-test.out > go-test-report.xml
+          else
+            echo '<testsuite name="acceptance-tests"></testsuite>' > go-test-report.xml
+          fi
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: acc-test-results
+          path: go-test-report.xml
+
+      - name: Docker logs
+        if: failure()
+        run: docker compose logs
+
+      - name: Cleanup Docker environment
+        if: always()
+        run: docker compose down -v

@@ -1,17 +1,74 @@
-# See GitHub's docs for more information on this file:
-# https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/configuration-options-for-dependency-updates
+# Dependabot configuration
+#
+# Documentation:
+# https://docs.github.com/en/code-security/dependabot/dependabot-version-updates
+
 version: 2
+
 updates:
-  # Maintain dependencies for GitHub Actions
+
+  #########################################################
+  # GitHub Actions
+  #########################################################
   - package-ecosystem: "github-actions"
     directory: "/"
-    schedule:
-      # Check for updates to GitHub Actions every weekday
-      interval: "daily"
 
-  # Maintain dependencies for Go modules
+    schedule:
+      interval: "daily"
+      time: "06:00"
+      timezone: "Europe/Warsaw"
+
+    # Automatically group all GitHub Actions updates
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+
+    # Limit number of open PRs
+    open-pull-requests-limit: 10
+
+    # Add labels to PRs
+    labels:
+      - "dependencies"
+      - "github-actions"
+
+    # Use conventional commit style
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  #########################################################
+  # Go Modules
+  #########################################################
   - package-ecosystem: "gomod"
     directory: "/"
+
     schedule:
-      # Check for updates to Go modules every weekday
       interval: "daily"
+      time: "06:30"
+      timezone: "Europe/Warsaw"
+
+    # Automatically group minor and patch updates
+    groups:
+      go-dependencies:
+        patterns:
+          - "*"
+
+    # Limit number of open PRs
+    open-pull-requests-limit: 10
+
+    # Add labels to PRs
+    labels:
+      - "dependencies"
+      - "golang"
+
+    # Use conventional commit style
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+    # Ignore unstable Go versions if needed
+    ignore:
+      - dependency-name: "go"
+        update-types:
+          - "version-update:semver-major"
