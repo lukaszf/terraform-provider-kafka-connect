@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - "**"
+
   pull_request:
     branches:
       - master
@@ -11,60 +12,162 @@ on:
 permissions:
   contents: read
 
+############################################################
+# Global environment variables
+############################################################
+
 env:
+
+  # Force GitHub Actions to use Node.js 24 runtime
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+  # Disable Go test cache
+  GOFLAGS: "-count=1"
+
+############################################################
+# Unit Tests
+############################################################
 
 jobs:
   test:
     name: Unit tests
+
     runs-on: ubuntu-latest
 
+    timeout-minutes: 15
+
     steps:
+      ######################################################
+      # Checkout repository
+      ######################################################
       - name: Checkout
         uses: actions/checkout@v5
 
+      ######################################################
+      # Setup Go
+      ######################################################
       - name: Set up Go
         uses: actions/setup-go@v6
         with:
           go-version: "1.25.8"
           cache: true
 
+      ######################################################
+      # Download Go dependencies
+      ######################################################
+      - name: Download dependencies
+        run: go mod download
+
+      ######################################################
+      # Run gofmt validation
+      ######################################################
+      - name: Check formatting
+        run: |
+          if [ "$(gofmt -s -l . | wc -l)" -gt 0 ]; then
+            echo "Go files are not formatted:"
+            gofmt -s -l .
+            exit 1
+          fi
+
+      ######################################################
+      # Run go vet
+      ######################################################
+      - name: Run go vet
+        run: go vet ./...
+
+      ######################################################
+      # Run unit tests
+      ######################################################
       - name: Run unit tests
-        run: make test
+        run: |
+          go test ./... \
+            -v \
+            -race \
+            -timeout=30m
+
+  ############################################################
+  # Acceptance Tests
+  ############################################################
 
   acctest:
     name: Acceptance tests
+
     runs-on: ubuntu-latest
 
+    timeout-minutes: 45
+
     steps:
+      ######################################################
+      # Checkout repository
+      ######################################################
       - name: Checkout
         uses: actions/checkout@v5
 
+      ######################################################
+      # Setup Go
+      ######################################################
       - name: Set up Go
         uses: actions/setup-go@v6
         with:
           go-version: "1.25.8"
           cache: true
 
+      ######################################################
+      # Download Go dependencies
+      ######################################################
+      - name: Download dependencies
+        run: go mod download
+
+      ######################################################
+      # Start Kafka Connect environment
+      ######################################################
       - name: Bring up Kafka Connect environment
         run: docker compose up -d
 
+      ######################################################
+      # Wait for Kafka Connect REST API
+      ######################################################
       - name: Wait for Kafka Connect
         run: make wait-for-connect
 
+      ######################################################
+      # Show Docker container status
+      ######################################################
+      - name: Docker status
+        run: docker compose ps
+
+      ######################################################
+      # Install JUnit report generator
+      ######################################################
       - name: Install go-junit-report
         run: go install github.com/jstemmer/go-junit-report/v2@latest
 
+      ######################################################
+      # Run acceptance tests
+      ######################################################
       - name: Run acceptance tests
+        env:
+          TF_ACC: "1"
+          TF_LOG: INFO
+          KAFKA_CONNECT_URL: http://localhost:8083
+
         run: |
           export PATH="$PATH:$(go env GOPATH)/bin"
 
-          set -o pipefail
+          set -euxo pipefail
 
-          make testacc 2>&1 | tee go-test.out
+          go test ./... \
+            -v \
+            -race \
+            -timeout=45m \
+            2>&1 | tee go-test.out
 
+      ######################################################
+      # Generate JUnit XML report
+      ######################################################
       - name: Generate JUnit report
         if: always()
+
         run: |
           export PATH="$PATH:$(go env GOPATH)/bin"
 
@@ -74,17 +177,30 @@ jobs:
             echo '<testsuite name="acceptance-tests"></testsuite>' > go-test-report.xml
           fi
 
+      ######################################################
+      # Upload JUnit report artifact
+      ######################################################
       - name: Upload test results
         if: always()
+
         uses: actions/upload-artifact@v5
+
         with:
           name: acc-test-results
           path: go-test-report.xml
 
+      ######################################################
+      # Upload Docker logs on failure
+      ######################################################
       - name: Docker logs
         if: failure()
+
         run: docker compose logs
 
+      ######################################################
+      # Cleanup Docker environment
+      ######################################################
       - name: Cleanup Docker environment
         if: always()
+
         run: docker compose down -v
