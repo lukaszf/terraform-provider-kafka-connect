@@ -1,0 +1,919 @@
+2026-05-21T16:42:56.450+0200 [DEBUG] sdk.helper_resource: Starting TestCase: test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:42:56.450+0200 [DEBUG] sdk.helper_resource: Calling TestCase PreCheck: test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:42:56.450+0200 [DEBUG] sdk.helper_resource: Called TestCase PreCheck: test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:42:56.450+0200 [DEBUG] sdk.helper_resource: Found Terraform CLI: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:42:56.697+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:42:56.697+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:42:56.697+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:42:56.698+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:42:56.765+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836
+2026-05-21T16:42:56.765+0200 [DEBUG] sdk.helper_resource: Starting TestSteps: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:42:56.765+0200 [DEBUG] sdk.helper_resource: Starting TestStep: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_step_number=1
+2026-05-21T16:42:56.766+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_step_number=1 test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:42:56.766+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:42:56.766+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_step_number=1 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:42:56.766+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate
+2026/05/21 16:42:56 [INFO] Initializing Kafka Connect client
+2026/05/21 16:42:56 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:42:56 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:42:56 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:42:56 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:42:56 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:42:56 [INFO] TLS insecure mode: false
+2026/05/21 16:42:56 [INFO] Kafka Connect client initialized successfully
+2026-05-21T16:42:56.852+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_step_number=1 test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:42:56.852+0200 [DEBUG] sdk.helper_resource: Running Terraform CLI plan and apply: test_step_number=1 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836
+2026-05-21T16:42:56.852+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:42:56.852+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_step_number=1 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:42:56.852+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:42:56.853+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:42:56.890+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_req_id=a81cab39-b1d4-709f-92f8-fd45aa7e375e tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_rpc=Configure
+2026/05/21 16:42:56 [INFO] Initializing Kafka Connect client
+2026/05/21 16:42:56 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:42:56 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:42:56 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:42:56 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:42:56 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:42:56 [INFO] TLS insecure mode: false
+2026/05/21 16:42:56 [INFO] Kafka Connect client initialized successfully
+2026-05-21T16:42:56.931+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_step_number=1
+2026-05-21T16:42:56.931+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_step_number=1 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:42:56.931+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:42:56.931+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_step_number=1
+2026-05-21T16:42:56.931+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:42:56.966+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_step_number=1
+2026-05-21T16:42:56.966+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:42:56.966+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_step_number=1 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:42:56.966+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_step_number=1
+2026-05-21T16:42:56.967+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:42:57.003+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_req_id=aa36914d-4717-7b17-2b2d-6b596c75ad3d tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_rpc=Configure
+2026/05/21 16:42:57 [INFO] Initializing Kafka Connect client
+2026/05/21 16:42:57 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:42:57 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:42:57 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:42:57 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:42:57 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:42:57 [INFO] TLS insecure mode: false
+2026/05/21 16:42:57 [INFO] Kafka Connect client initialized successfully
+2026/05/21 16:42:57 [INFO] Kafka Connect create connector request: name=sqlite-sink
+2026/05/21 16:42:57 [INFO] Kafka Connect request: method=POST url=/connectors timeout=1m0s
+2026/05/21 16:42:57 [INFO] Kafka Connect request: method=POST url=/connectors timeout=1m0s
+2026/05/21 16:42:58 [INFO] Kafka Connect request: method=POST url=/connectors timeout=1m0s
+2026/05/21 16:43:00 [INFO] Kafka Connect request: method=POST url=/connectors timeout=1m0s
+2026/05/21 16:43:03 [INFO] Kafka Connect request: method=POST url=/connectors timeout=1m0s
+2026/05/21 16:43:07 [ERROR] Kafka Connect create connector failed: name=sqlite-sink error=Post "http://localhost:8083/connectors": dial tcp [::1]:8083: connect: connection refused
+2026-05-21T16:43:07.490+0200 [ERROR] sdk.proto: Response contains error diagnostic: tf_resource_type=kafka-connect_connector diagnostic_summary="Post \"http://localhost:8083/connectors\": dial tcp [::1]:8083: connect: connection refused" diagnostic_detail="" diagnostic_severity=ERROR tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_proto_version=5.11 tf_rpc=ApplyResourceChange tf_req_id=d61e6777-5b9e-3696-f49f-4a1dd50d205b
+2026-05-21T16:43:07.527+0200 [WARN]  sdk.helper_resource: Error running Terraform CLI command: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_step_number=1
+  error=
+  | exit status 1
+  | 
+  | Error: Post "http://localhost:8083/connectors": dial tcp [::1]:8083: connect: connection refused
+  | 
+  |   with kafka-connect_connector.test,
+  |   on terraform_plugin_test.tf line 3, in resource "kafka-connect_connector" "test":
+  |    3: resource "kafka-connect_connector" "test" {
+  | 
+   test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:43:07.527+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_step_number=1
+2026-05-21T16:43:07.528+0200 [ERROR] sdk.helper_resource: Unexpected error: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+  error=
+  | Error running apply: exit status 1
+  | 
+  | Error: Post "http://localhost:8083/connectors": dial tcp [::1]:8083: connect: connection refused
+  | 
+  |   with kafka-connect_connector.test,
+  |   on terraform_plugin_test.tf line 3, in resource "kafka-connect_connector" "test":
+  |    3: resource "kafka-connect_connector" "test" {
+  | 
+   test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_step_number=1
+2026-05-21T16:43:07.528+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_step_number=1
+2026-05-21T16:43:07.528+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:43:07.528+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_step_number=1 test_name=TestAccConnectorConfigUpdate tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:43:07.529+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:43:07.589+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest1818034836 test_step_number=1
+2026-05-21T16:43:07.590+0200 [DEBUG] sdk.helper_resource: Starting TestCase: test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:43:07.590+0200 [DEBUG] sdk.helper_resource: Calling TestCase PreCheck: test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:43:07.590+0200 [DEBUG] sdk.helper_resource: Called TestCase PreCheck: test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:43:07.590+0200 [DEBUG] sdk.helper_resource: Found Terraform CLI: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:43:07.620+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 test_name=TestAccConnectorWithTimeouts tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:43:07.620+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 test_name=TestAccConnectorWithTimeouts tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:43:07.620+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:43:07.620+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:43:07.652+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:43:07.652+0200 [DEBUG] sdk.helper_resource: Starting TestSteps: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:43:07.652+0200 [DEBUG] sdk.helper_resource: Starting TestStep: test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757
+2026-05-21T16:43:07.652+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:43:07.652+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:43:07.652+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_step_number=1 test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:43:07.652+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757
+2026-05-21T16:43:07.687+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_rpc=Configure tf_req_id=46fd7ad8-c39e-74e5-c0d5-ca9c03e3bc3c
+2026/05/21 16:43:07 [INFO] Initializing Kafka Connect client
+2026/05/21 16:43:07 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:43:07 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:43:07 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:43:07 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:43:07 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:43:07 [INFO] TLS insecure mode: false
+2026/05/21 16:43:07 [INFO] Kafka Connect client initialized successfully
+2026-05-21T16:43:07.696+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:43:07.696+0200 [DEBUG] sdk.helper_resource: Running Terraform CLI plan and apply: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 test_step_number=1 test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:43:07.696+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 test_step_number=1
+2026-05-21T16:43:07.696+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:43:07.696+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757
+2026-05-21T16:43:07.697+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:43:07.732+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_req_id=c45f2650-40b6-ca1f-3756-f27da29b1bba tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_rpc=Configure
+2026/05/21 16:43:07 [INFO] Initializing Kafka Connect client
+2026/05/21 16:43:07 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:43:07 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:43:07 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:43:07 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:43:07 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:43:07 [INFO] TLS insecure mode: false
+2026/05/21 16:43:07 [INFO] Kafka Connect client initialized successfully
+2026-05-21T16:43:07.769+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757
+2026-05-21T16:43:07.770+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:43:07.770+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757
+2026-05-21T16:43:07.770+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:43:07.770+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:43:07.805+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 test_step_number=1 test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:43:07.806+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:43:07.806+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:43:07.806+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 test_step_number=1
+2026-05-21T16:43:07.806+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757
+2026-05-21T16:43:07.842+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_req_id=4bba26ed-93e0-068d-7099-bb5bda8e2a55 tf_rpc=Configure
+2026/05/21 16:43:07 [INFO] Initializing Kafka Connect client
+2026/05/21 16:43:07 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:43:07 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:43:07 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:43:07 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:43:07 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:43:07 [INFO] TLS insecure mode: false
+2026/05/21 16:43:07 [INFO] Kafka Connect client initialized successfully
+2026/05/21 16:43:07 [INFO] Kafka Connect create connector request: name=test-with-timeouts
+2026/05/21 16:43:07 [INFO] Kafka Connect request: method=POST url=/connectors timeout=1m0s
+2026/05/21 16:43:08 [INFO] Kafka Connect request: method=POST url=/connectors timeout=1m0s
+2026/05/21 16:43:08 [INFO] Kafka Connect request: method=POST url=/connectors timeout=1m0s
+2026/05/21 16:43:10 [INFO] Kafka Connect request: method=POST url=/connectors timeout=1m0s
+2026/05/21 16:43:14 [INFO] Kafka Connect request: method=POST url=/connectors timeout=1m0s
+2026/05/21 16:43:17 [ERROR] Kafka Connect create connector failed: name=test-with-timeouts error=Post "http://localhost:8083/connectors": dial tcp [::1]:8083: connect: connection refused
+2026-05-21T16:43:17.271+0200 [ERROR] sdk.proto: Response contains error diagnostic: tf_req_id=0543b6b0-fe7d-920a-9e74-b455b1ca90be tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_resource_type=kafka-connect_connector diagnostic_detail="" diagnostic_severity=ERROR diagnostic_summary="Post \"http://localhost:8083/connectors\": dial tcp [::1]:8083: connect: connection refused" tf_proto_version=5.11 tf_rpc=ApplyResourceChange
+2026-05-21T16:43:17.294+0200 [WARN]  sdk.helper_resource: Error running Terraform CLI command: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 test_step_number=1 test_name=TestAccConnectorWithTimeouts
+  error=
+  | exit status 1
+  | 
+  | Error: Post "http://localhost:8083/connectors": dial tcp [::1]:8083: connect: connection refused
+  | 
+  |   with kafka-connect_connector.test_timeouts,
+  |   on terraform_plugin_test.tf line 3, in resource "kafka-connect_connector" "test_timeouts":
+  |    3: resource "kafka-connect_connector" "test_timeouts" {
+  | 
+  
+2026-05-21T16:43:17.294+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 test_step_number=1
+2026-05-21T16:43:17.294+0200 [ERROR] sdk.helper_resource: Unexpected error:
+  error=
+  | Error running apply: exit status 1
+  | 
+  | Error: Post "http://localhost:8083/connectors": dial tcp [::1]:8083: connect: connection refused
+  | 
+  |   with kafka-connect_connector.test_timeouts,
+  |   on terraform_plugin_test.tf line 3, in resource "kafka-connect_connector" "test_timeouts":
+  |    3: resource "kafka-connect_connector" "test_timeouts" {
+  | 
+   test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 test_step_number=1
+2026-05-21T16:43:17.295+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:43:17.295+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:43:17.295+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:43:17.295+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 test_step_number=1 test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:43:17.343+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3495427757 test_step_number=1
+2026/05/21 16:43:17 [INFO] Kafka Connect rebalance in progress; retrying after 0.33s: rebalance in progress
+2026/05/21 16:43:17 [INFO] Kafka Connect rebalance in progress; retrying after 0.61s: rebalance in progress
+2026/05/21 16:43:18 [INFO] Kafka Connect rebalance in progress; retrying after 0.31s: rebalance in progress
+2026/05/21 16:43:18 [INFO] Kafka Connect rebalance in progress; retrying after 0.61s: rebalance in progress
+2026/05/21 16:43:19 [INFO] Kafka Connect rebalance in progress; retrying after 1.14s: rebalance in progress
+2026/05/21 16:43:20 [INFO] Kafka Connect rebalance in progress; retrying after 0.34s: rebalance in progress
+2026/05/21 16:43:20 [INFO] Kafka Connect rebalance in progress; retrying after 0.61s: rebalance in progress
+2026/05/21 16:43:21 [INFO] Kafka Connect rebalance in progress; retrying after 1.05s: rebalance in progress
+2026/05/21 16:43:22 [INFO] Kafka Connect rebalance in progress; retrying after 2.32s: rebalance in progress
+2026-05-21T16:46:33.375+0200 [DEBUG] sdk.helper_resource: Starting TestCase: test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:46:33.376+0200 [DEBUG] sdk.helper_resource: Calling TestCase PreCheck: test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:46:33.376+0200 [DEBUG] sdk.helper_resource: Called TestCase PreCheck: test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:46:33.376+0200 [DEBUG] sdk.helper_resource: Found Terraform CLI: test_terraform_path=/opt/homebrew/bin/terraform test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:46:33.581+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:33.581+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:33.581+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 test_name=TestAccConnectorConfigUpdate tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:33.582+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:33.616+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030
+2026-05-21T16:46:33.616+0200 [DEBUG] sdk.helper_resource: Starting TestSteps: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030
+2026-05-21T16:46:33.616+0200 [DEBUG] sdk.helper_resource: Starting TestStep: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 test_step_number=1 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:46:33.617+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 test_step_number=1 test_name=TestAccConnectorConfigUpdate tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:33.617+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:33.617+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 test_step_number=1
+2026-05-21T16:46:33.617+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 test_step_number=1 test_name=TestAccConnectorConfigUpdate tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026/05/21 16:46:33 [INFO] Initializing Kafka Connect client
+2026/05/21 16:46:33 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:46:33 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:46:33 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:46:33 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:46:33 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:46:33 [INFO] TLS insecure mode: false
+2026/05/21 16:46:33 [INFO] Kafka Connect client initialized successfully
+2026-05-21T16:46:33.697+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 test_step_number=1 test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:46:33.697+0200 [DEBUG] sdk.helper_resource: Running Terraform CLI plan and apply: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 test_step_number=1 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:46:33.697+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:33.697+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:33.697+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030
+2026-05-21T16:46:33.700+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:33.734+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_req_id=573fdfb6-1b27-aad3-e318-bb3c88453529 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_rpc=Configure
+2026/05/21 16:46:33 [INFO] Initializing Kafka Connect client
+2026/05/21 16:46:33 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:46:33 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:46:33 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:46:33 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:46:33 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:46:33 [INFO] TLS insecure mode: false
+2026/05/21 16:46:33 [INFO] Kafka Connect client initialized successfully
+2026-05-21T16:46:33.776+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_step_number=1 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030
+2026-05-21T16:46:33.776+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:46:33.776+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:46:33.776+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 test_step_number=1 test_name=TestAccConnectorConfigUpdate tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:33.777+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:46:33.809+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 test_step_number=1
+2026-05-21T16:46:33.809+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_step_number=1 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030
+2026-05-21T16:46:33.809+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_step_number=1
+2026-05-21T16:46:33.809+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:33.810+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:33.852+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_rpc=Configure tf_req_id=134fcebf-6398-2ea3-62b1-4be845369c87 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026/05/21 16:46:33 [INFO] Initializing Kafka Connect client
+2026/05/21 16:46:33 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:46:33 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:46:33 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:46:33 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:46:33 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:46:33 [INFO] TLS insecure mode: false
+2026/05/21 16:46:33 [INFO] Kafka Connect client initialized successfully
+2026/05/21 16:46:33 [INFO] Kafka Connect create connector request: name=sqlite-sink
+2026/05/21 16:46:33 [INFO] Kafka Connect request: method=POST url=/connectors timeout=1m0s
+2026/05/21 16:46:34 [INFO] Kafka Connect request: method=POST url=/connectors timeout=1m0s
+2026/05/21 16:46:34 [INFO] Kafka Connect request: method=POST url=/connectors timeout=1m0s
+2026/05/21 16:46:36 [INFO] Kafka Connect request: method=POST url=/connectors timeout=1m0s
+2026/05/21 16:46:40 [INFO] Kafka Connect request: method=POST url=/connectors timeout=1m0s
+2026/05/21 16:46:43 [ERROR] Kafka Connect create connector failed: name=sqlite-sink error=Post "http://localhost:8083/connectors": dial tcp [::1]:8083: connect: connection refused
+2026-05-21T16:46:43.913+0200 [ERROR] sdk.proto: Response contains error diagnostic: tf_req_id=23f921ca-cddb-6ef3-ac4f-a4c5693fc545 tf_proto_version=5.11 diagnostic_detail="" diagnostic_severity=ERROR diagnostic_summary="Post \"http://localhost:8083/connectors\": dial tcp [::1]:8083: connect: connection refused" tf_rpc=ApplyResourceChange tf_resource_type=kafka-connect_connector tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:43.933+0200 [WARN]  sdk.helper_resource: Error running Terraform CLI command:
+  error=
+  | exit status 1
+  | 
+  | Error: Post "http://localhost:8083/connectors": dial tcp [::1]:8083: connect: connection refused
+  | 
+  |   with kafka-connect_connector.test,
+  |   on terraform_plugin_test.tf line 3, in resource "kafka-connect_connector" "test":
+  |    3: resource "kafka-connect_connector" "test" {
+  | 
+   test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 test_step_number=1
+2026-05-21T16:46:43.933+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 test_step_number=1 test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:46:43.933+0200 [ERROR] sdk.helper_resource: Unexpected error: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 test_step_number=1
+  error=
+  | Error running apply: exit status 1
+  | 
+  | Error: Post "http://localhost:8083/connectors": dial tcp [::1]:8083: connect: connection refused
+  | 
+  |   with kafka-connect_connector.test,
+  |   on terraform_plugin_test.tf line 3, in resource "kafka-connect_connector" "test":
+  |    3: resource "kafka-connect_connector" "test" {
+  | 
+  
+2026-05-21T16:46:43.933+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:43.933+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:43.933+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_step_number=1 test_name=TestAccConnectorConfigUpdate tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030
+2026-05-21T16:46:43.933+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 test_step_number=1
+2026-05-21T16:46:43.975+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest2334190030 test_step_number=1 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:46:43.976+0200 [DEBUG] sdk.helper_resource: Starting TestCase: test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:46:43.976+0200 [DEBUG] sdk.helper_resource: Calling TestCase PreCheck: test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:46:43.976+0200 [DEBUG] sdk.helper_resource: Called TestCase PreCheck: test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:46:43.976+0200 [DEBUG] sdk.helper_resource: Found Terraform CLI: test_terraform_path=/opt/homebrew/bin/terraform test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:46:44.005+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:46:44.005+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:46:44.005+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:46:44.006+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:46:44.036+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:46:44.036+0200 [DEBUG] sdk.helper_resource: Starting TestSteps: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:46:44.036+0200 [DEBUG] sdk.helper_resource: Starting TestStep: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 test_step_number=1
+2026-05-21T16:46:44.036+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030
+2026-05-21T16:46:44.036+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:44.036+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:44.037+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:44.072+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_req_id=23cd9f70-92f5-5123-e729-af37cfa95397 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_rpc=Configure
+2026/05/21 16:46:44 [INFO] Initializing Kafka Connect client
+2026/05/21 16:46:44 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:46:44 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:46:44 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:46:44 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:46:44 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:46:44 [INFO] TLS insecure mode: false
+2026/05/21 16:46:44 [INFO] Kafka Connect client initialized successfully
+2026-05-21T16:46:44.081+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 test_step_number=1 test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:46:44.081+0200 [DEBUG] sdk.helper_resource: Running Terraform CLI plan and apply: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:46:44.081+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:44.081+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 test_step_number=1
+2026-05-21T16:46:44.081+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:44.081+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:44.117+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_rpc=Configure tf_req_id=5d410c46-e92c-c8b4-549f-50b489a96498
+2026/05/21 16:46:44 [INFO] Initializing Kafka Connect client
+2026/05/21 16:46:44 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:46:44 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:46:44 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:46:44 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:46:44 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:46:44 [INFO] TLS insecure mode: false
+2026/05/21 16:46:44 [INFO] Kafka Connect client initialized successfully
+2026-05-21T16:46:44.154+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:46:44.154+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:44.155+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 test_step_number=1
+2026-05-21T16:46:44.155+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:44.155+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:46:44.189+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030
+2026-05-21T16:46:44.189+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:44.189+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:44.189+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030
+2026-05-21T16:46:44.189+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:44.223+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_rpc=Configure tf_req_id=c3778063-3858-cdc0-619b-f8040f805aec
+2026/05/21 16:46:44 [INFO] Initializing Kafka Connect client
+2026/05/21 16:46:44 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:46:44 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:46:44 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:46:44 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:46:44 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:46:44 [INFO] TLS insecure mode: false
+2026/05/21 16:46:44 [INFO] Kafka Connect client initialized successfully
+2026/05/21 16:46:44 [INFO] Kafka Connect create connector request: name=test-with-timeouts
+2026/05/21 16:46:44 [INFO] Kafka Connect request: method=POST url=/connectors timeout=1m0s
+2026/05/21 16:46:44 [INFO] Kafka Connect request: method=POST url=/connectors timeout=1m0s
+2026/05/21 16:46:45 [INFO] Kafka Connect request: method=POST url=/connectors timeout=1m0s
+2026/05/21 16:46:46 [INFO] Kafka Connect request: method=POST url=/connectors timeout=1m0s
+2026/05/21 16:46:49 [INFO] Kafka Connect request: method=POST url=/connectors timeout=1m0s
+2026/05/21 16:46:52 [ERROR] Kafka Connect create connector failed: name=test-with-timeouts error=Post "http://localhost:8083/connectors": dial tcp [::1]:8083: connect: connection refused
+2026-05-21T16:46:52.972+0200 [ERROR] sdk.proto: Response contains error diagnostic: tf_rpc=ApplyResourceChange tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_proto_version=5.11 tf_req_id=bb4a156b-ac2e-efe6-4b1c-33bd88432632 diagnostic_detail="" diagnostic_severity=ERROR diagnostic_summary="Post \"http://localhost:8083/connectors\": dial tcp [::1]:8083: connect: connection refused" tf_resource_type=kafka-connect_connector
+2026-05-21T16:46:52.988+0200 [WARN]  sdk.helper_resource: Error running Terraform CLI command: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 test_step_number=1
+  error=
+  | exit status 1
+  | 
+  | Error: Post "http://localhost:8083/connectors": dial tcp [::1]:8083: connect: connection refused
+  | 
+  |   with kafka-connect_connector.test_timeouts,
+  |   on terraform_plugin_test.tf line 3, in resource "kafka-connect_connector" "test_timeouts":
+  |    3: resource "kafka-connect_connector" "test_timeouts" {
+  | 
+  
+2026-05-21T16:46:52.988+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:46:52.988+0200 [ERROR] sdk.helper_resource: Unexpected error: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 test_step_number=1
+  error=
+  | Error running apply: exit status 1
+  | 
+  | Error: Post "http://localhost:8083/connectors": dial tcp [::1]:8083: connect: connection refused
+  | 
+  |   with kafka-connect_connector.test_timeouts,
+  |   on terraform_plugin_test.tf line 3, in resource "kafka-connect_connector" "test_timeouts":
+  |    3: resource "kafka-connect_connector" "test_timeouts" {
+  | 
+  
+2026-05-21T16:46:52.988+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030
+2026-05-21T16:46:52.988+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:52.988+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:46:52.988+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030 test_step_number=1
+2026-05-21T16:46:53.024+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest38882030
+2026/05/21 16:46:53 [INFO] Kafka Connect rebalance in progress; retrying after 0.30s: rebalance in progress
+2026/05/21 16:46:53 [INFO] Kafka Connect rebalance in progress; retrying after 0.70s: rebalance in progress
+2026/05/21 16:46:54 [INFO] Kafka Connect rebalance in progress; retrying after 0.35s: rebalance in progress
+2026/05/21 16:46:54 [INFO] Kafka Connect rebalance in progress; retrying after 0.73s: rebalance in progress
+2026/05/21 16:46:55 [INFO] Kafka Connect rebalance in progress; retrying after 0.27s: rebalance in progress
+2026/05/21 16:46:55 [INFO] Kafka Connect rebalance in progress; retrying after 0.57s: rebalance in progress
+2026/05/21 16:46:55 [INFO] Kafka Connect rebalance in progress; retrying after 1.11s: rebalance in progress
+2026/05/21 16:46:57 [INFO] Kafka Connect rebalance in progress; retrying after 2.52s: rebalance in progress
+2026-05-21T16:52:47.434+0200 [DEBUG] sdk.helper_resource: Starting TestCase: test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:52:47.435+0200 [DEBUG] sdk.helper_resource: Calling TestCase PreCheck: test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:52:47.435+0200 [DEBUG] sdk.helper_resource: Called TestCase PreCheck: test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:52:47.435+0200 [DEBUG] sdk.helper_resource: Found Terraform CLI: test_terraform_path=/opt/homebrew/bin/terraform test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:52:47.887+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:52:47.887+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:47.887+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:47.888+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:47.951+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371
+2026-05-21T16:52:47.951+0200 [DEBUG] sdk.helper_resource: Starting TestSteps: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371
+2026-05-21T16:52:47.951+0200 [DEBUG] sdk.helper_resource: Starting TestStep: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1
+2026-05-21T16:52:47.952+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:47.952+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:47.952+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:52:47.952+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371
+2026/05/21 16:52:48 [INFO] Initializing Kafka Connect client
+2026/05/21 16:52:48 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:52:48 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:52:48 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:52:48 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:52:48 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:52:48 [INFO] TLS insecure mode: false
+2026/05/21 16:52:48 [INFO] Kafka Connect client initialized successfully
+2026-05-21T16:52:48.058+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1
+2026-05-21T16:52:48.059+0200 [DEBUG] sdk.helper_resource: Running Terraform CLI plan and apply: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1
+2026-05-21T16:52:48.059+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:48.059+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:52:48.059+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:48.059+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_step_number=1 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:52:48.103+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_req_id=36c66282-2806-8be2-2d3a-8edb437589de tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_rpc=Configure
+2026/05/21 16:52:48 [INFO] Initializing Kafka Connect client
+2026/05/21 16:52:48 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:52:48 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:52:48 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:52:48 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:52:48 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:52:48 [INFO] TLS insecure mode: false
+2026/05/21 16:52:48 [INFO] Kafka Connect client initialized successfully
+2026-05-21T16:52:48.147+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_step_number=1 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371
+2026-05-21T16:52:48.147+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 test_name=TestAccConnectorConfigUpdate tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:48.147+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:48.147+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:48.148+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1
+2026-05-21T16:52:48.187+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:52:48.187+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:48.187+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_step_number=1 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:48.187+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:48.187+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_step_number=1 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:48.234+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_rpc=Configure tf_req_id=7e10f481-8e5f-7a7a-33c8-894692fbb1de
+2026/05/21 16:52:48 [INFO] Initializing Kafka Connect client
+2026/05/21 16:52:48 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:52:48 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:52:48 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:52:48 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:52:48 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:52:48 [INFO] TLS insecure mode: false
+2026/05/21 16:52:48 [INFO] Kafka Connect client initialized successfully
+2026/05/21 16:52:48 [INFO] Kafka Connect create connector request: name=sqlite-sink
+2026/05/21 16:52:48 [INFO] Kafka Connect request: method=POST url=/connectors timeout=1m0s
+2026/05/21 16:52:51 [INFO] Kafka Connect response: method=POST url=http://localhost:8083/connectors status=201 duration=3.689463333s
+2026/05/21 16:52:51 [INFO] Kafka Connect create connector completed: name=sqlite-sink status=201
+2026/05/21 16:52:51 [INFO] Kafka Connect request: method=GET url=/connectors/{name} timeout=1m0s
+2026/05/21 16:52:53 [INFO] Kafka Connect response: method=GET url=http://localhost:8083/connectors/sqlite-sink status=409 duration=1.212963334s
+2026/05/21 16:52:53 [ERROR] Kafka Connect error response: {"error_code":409,"message":"Cannot complete request momentarily due to stale configuration (typically caused by a concurrent config change)"}
+2026/05/21 16:52:53 [WARN] Kafka Connect retry triggered: status=409 method=GET url=http://localhost:8083/connectors/sqlite-sink
+2026/05/21 16:52:53 [INFO] Kafka Connect request: method=GET url=/connectors/{name} timeout=1m0s
+2026/05/21 16:52:53 [INFO] Kafka Connect response: method=GET url=http://localhost:8083/connectors/sqlite-sink status=200 duration=46.586042ms
+2026/05/21 16:52:53 [INFO] Created connector: sqlite-sink
+2026/05/21 16:52:53 [INFO] Reading connector: sqlite-sink
+2026/05/21 16:52:53 [INFO] Kafka Connect request: method=GET url=/connectors/{name} timeout=1m0s
+2026/05/21 16:52:53 [INFO] Kafka Connect response: method=GET url=http://localhost:8083/connectors/sqlite-sink status=200 duration=4.437292ms
+2026/05/21 16:52:53 [INFO] Connector sqlite-sink state refreshed
+2026-05-21T16:52:53.724+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1
+2026-05-21T16:52:53.724+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1
+2026-05-21T16:52:53.725+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1
+2026-05-21T16:52:53.725+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:52:53.725+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_step_number=1 test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:52:53.762+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_step_number=1 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371
+2026/05/21 16:52:53 [INFO] Kafka Connect request: method=GET url=/connectors/{name} timeout=1m0s
+2026/05/21 16:52:53 [INFO] Kafka Connect response: method=GET url=http://localhost:8083/connectors/sqlite-sink status=200 duration=4.351542ms
+2026-05-21T16:52:53.767+0200 [DEBUG] sdk.helper_resource: Running Terraform CLI plan to check for perpetual differences: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1
+2026-05-21T16:52:53.767+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:53.767+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_step_number=1 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:52:53.767+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_step_number=1 test_name=TestAccConnectorConfigUpdate tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371
+2026-05-21T16:52:53.768+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:53.811+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_rpc=Configure tf_req_id=4064990e-8ec9-a415-7d9a-6b5af7da92fa tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026/05/21 16:52:53 [INFO] Initializing Kafka Connect client
+2026/05/21 16:52:53 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:52:53 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:52:53 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:52:53 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:52:53 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:52:53 [INFO] TLS insecure mode: false
+2026/05/21 16:52:53 [INFO] Kafka Connect client initialized successfully
+2026-05-21T16:52:53.818+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1
+2026-05-21T16:52:53.819+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:53.819+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:53.819+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_step_number=1 test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:52:53.819+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 test_name=TestAccConnectorConfigUpdate tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:52:53.856+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:52:53.856+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:53.856+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371
+2026-05-21T16:52:53.856+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:53.856+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:53.898+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_rpc=Configure tf_req_id=f2407372-ff5c-c402-57bb-4bf7d3bd7505
+2026/05/21 16:52:53 [INFO] Initializing Kafka Connect client
+2026/05/21 16:52:53 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:52:53 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:52:53 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:52:53 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:52:53 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:52:53 [INFO] TLS insecure mode: false
+2026/05/21 16:52:53 [INFO] Kafka Connect client initialized successfully
+2026/05/21 16:52:53 [INFO] Reading connector: sqlite-sink
+2026/05/21 16:52:53 [INFO] Kafka Connect request: method=GET url=/connectors/{name} timeout=1m0s
+2026/05/21 16:52:53 [INFO] Kafka Connect response: method=GET url=http://localhost:8083/connectors/sqlite-sink status=200 duration=5.326333ms
+2026/05/21 16:52:53 [INFO] Connector sqlite-sink state refreshed
+2026-05-21T16:52:53.948+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1
+2026-05-21T16:52:53.951+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 test_name=TestAccConnectorConfigUpdate tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:53.951+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:53.951+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1
+2026-05-21T16:52:53.951+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371
+2026-05-21T16:52:54.003+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_req_id=f5131d78-a8f5-3694-ac82-9cbf0a068b55 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_rpc=Configure
+2026/05/21 16:52:54 [INFO] Initializing Kafka Connect client
+2026/05/21 16:52:54 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:52:54 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:52:54 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:52:54 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:52:54 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:52:54 [INFO] TLS insecure mode: false
+2026/05/21 16:52:54 [INFO] Kafka Connect client initialized successfully
+2026-05-21T16:52:54.009+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:52:54.009+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:52:54.009+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:54.009+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:52:54.009+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1
+2026-05-21T16:52:54.052+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:52:54.052+0200 [DEBUG] sdk.helper_resource: Finished TestStep: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=1 test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:52:54.052+0200 [DEBUG] sdk.helper_resource: Starting TestStep: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=2 test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:52:54.052+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_step_number=2
+2026-05-21T16:52:54.052+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_step_number=2 test_name=TestAccConnectorConfigUpdate tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371
+2026-05-21T16:52:54.052+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_name=TestAccConnectorConfigUpdate tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=2
+2026-05-21T16:52:54.053+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=2 test_name=TestAccConnectorConfigUpdate tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:54.092+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=2 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:52:54.124+0200 [DEBUG] sdk.helper_resource: Running Terraform CLI init and import: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=2 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:52:54.124+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=2 test_name=TestAccConnectorConfigUpdate tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:54.124+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=2 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:52:54.124+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_name=TestAccConnectorConfigUpdate tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=2
+2026-05-21T16:52:54.125+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=2 test_name=TestAccConnectorConfigUpdate tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:52:54.168+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=2 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:52:54.169+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=2 test_name=TestAccConnectorConfigUpdate tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:54.169+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=2 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:52:54.169+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_step_number=2 test_name=TestAccConnectorConfigUpdate tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371
+2026-05-21T16:52:54.169+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=2 test_name=TestAccConnectorConfigUpdate tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:54.227+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_req_id=3d6ccd1d-913c-d77e-6e09-9496474f87e9 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_rpc=Configure
+2026/05/21 16:52:54 [INFO] Initializing Kafka Connect client
+2026/05/21 16:52:54 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:52:54 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:52:54 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:52:54 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:52:54 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:52:54 [INFO] TLS insecure mode: false
+2026/05/21 16:52:54 [INFO] Kafka Connect client initialized successfully
+2026/05/21 16:52:54 [INFO] Import connector with name: sqlite-sink
+2026/05/21 16:52:54 [INFO] Reading connector: sqlite-sink
+2026/05/21 16:52:54 [INFO] Kafka Connect request: method=GET url=/connectors/{name} timeout=1m0s
+2026/05/21 16:52:54 [INFO] Kafka Connect response: method=GET url=http://localhost:8083/connectors/sqlite-sink status=200 duration=13.328375ms
+2026/05/21 16:52:54 [INFO] Connector sqlite-sink state refreshed
+2026-05-21T16:52:54.263+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=2
+2026-05-21T16:52:54.264+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=2 test_name=TestAccConnectorConfigUpdate tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:54.264+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=2 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:54.264+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=2
+2026-05-21T16:52:54.264+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=2 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:52:54.309+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=2 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:52:54.309+0200 [DEBUG] sdk.helper_resource: Finished TestStep: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=2 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:52:54.309+0200 [DEBUG] sdk.helper_resource: Starting TestStep: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:52:54.310+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3
+2026-05-21T16:52:54.310+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:54.310+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:54.310+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:54.349+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_req_id=207aa373-bd12-bc9b-5303-ef7c1a799571 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_rpc=Configure
+2026/05/21 16:52:54 [INFO] Initializing Kafka Connect client
+2026/05/21 16:52:54 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:52:54 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:52:54 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:52:54 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:52:54 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:52:54 [INFO] TLS insecure mode: false
+2026/05/21 16:52:54 [INFO] Kafka Connect client initialized successfully
+2026/05/21 16:52:54 [INFO] Reading connector: sqlite-sink
+2026/05/21 16:52:54 [INFO] Kafka Connect request: method=GET url=/connectors/{name} timeout=1m0s
+2026/05/21 16:52:54 [INFO] Kafka Connect response: method=GET url=http://localhost:8083/connectors/sqlite-sink status=200 duration=6.459666ms
+2026/05/21 16:52:54 [INFO] Connector sqlite-sink state refreshed
+2026-05-21T16:52:54.375+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371
+2026-05-21T16:52:54.375+0200 [DEBUG] sdk.helper_resource: Running Terraform CLI plan and apply: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:52:54.375+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:52:54.375+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:54.375+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:54.376+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:54.415+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_rpc=Configure tf_req_id=811c63d4-eefb-16c9-51b4-7d8126e1b350 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026/05/21 16:52:54 [INFO] Initializing Kafka Connect client
+2026/05/21 16:52:54 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:52:54 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:52:54 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:52:54 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:52:54 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:52:54 [INFO] TLS insecure mode: false
+2026/05/21 16:52:54 [INFO] Kafka Connect client initialized successfully
+2026-05-21T16:52:54.457+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:52:54.458+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:54.458+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_step_number=3 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371
+2026-05-21T16:52:54.458+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:54.458+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:54.496+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:52:54.496+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371
+2026-05-21T16:52:54.496+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_step_number=3
+2026-05-21T16:52:54.496+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:54.496+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:52:54.537+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_req_id=e87c62d4-c0f3-eeae-b590-8b8f244d83bf tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_rpc=Configure
+2026/05/21 16:52:54 [INFO] Initializing Kafka Connect client
+2026/05/21 16:52:54 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:52:54 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:52:54 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:52:54 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:52:54 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:52:54 [INFO] TLS insecure mode: false
+2026/05/21 16:52:54 [INFO] Kafka Connect client initialized successfully
+2026/05/21 16:52:54 [INFO] Updating connector: sqlite-sink
+2026/05/21 16:52:54 [INFO] Kafka Connect update connector request: name=sqlite-sink
+2026/05/21 16:52:54 [INFO] Kafka Connect request: method=PUT url=/connectors/{name}/config timeout=1m0s
+2026/05/21 16:52:55 [INFO] Kafka Connect response: method=PUT url=http://localhost:8083/connectors/sqlite-sink/config status=200 duration=535.881ms
+2026/05/21 16:52:55 [INFO] Kafka Connect update connector completed: name=sqlite-sink status=200
+2026/05/21 16:52:55 [INFO] Kafka Connect request: method=GET url=/connectors/{name}/config timeout=1m0s
+2026/05/21 16:52:56 [INFO] Kafka Connect response: method=GET url=http://localhost:8083/connectors/sqlite-sink/config status=409 duration=1.661248667s
+2026/05/21 16:52:56 [ERROR] Kafka Connect error response: {"error_code":409,"message":"Cannot complete request momentarily due to stale configuration (typically caused by a concurrent config change)"}
+2026/05/21 16:52:56 [WARN] Kafka Connect retry triggered: status=409 method=GET url=http://localhost:8083/connectors/sqlite-sink/config
+2026/05/21 16:52:57 [INFO] Kafka Connect request: method=GET url=/connectors/{name}/config timeout=1m0s
+2026/05/21 16:52:59 [INFO] Kafka Connect response: method=GET url=http://localhost:8083/connectors/sqlite-sink/config status=200 duration=2.670945917s
+2026/05/21 16:52:59 [INFO] Reading connector: sqlite-sink
+2026/05/21 16:52:59 [INFO] Kafka Connect request: method=GET url=/connectors/{name} timeout=1m0s
+2026/05/21 16:52:59 [INFO] Kafka Connect response: method=GET url=http://localhost:8083/connectors/sqlite-sink status=200 duration=43.669125ms
+2026/05/21 16:52:59 [INFO] Connector sqlite-sink state refreshed
+2026-05-21T16:53:00.004+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:53:00.006+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:00.006+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3
+2026-05-21T16:53:00.006+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:53:00.007+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:00.045+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371
+2026/05/21 16:53:00 [INFO] Kafka Connect request: method=GET url=/connectors/{name} timeout=1m0s
+2026/05/21 16:53:00 [INFO] Kafka Connect response: method=GET url=http://localhost:8083/connectors/sqlite-sink status=200 duration=14.438875ms
+2026-05-21T16:53:00.060+0200 [DEBUG] sdk.helper_resource: Running Terraform CLI plan to check for perpetual differences: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:53:00.060+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3
+2026-05-21T16:53:00.060+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:00.060+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:00.060+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3
+2026-05-21T16:53:00.097+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_rpc=Configure tf_req_id=aee0eef0-39bc-8a83-e6e2-072cc5e44d66 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026/05/21 16:53:00 [INFO] Initializing Kafka Connect client
+2026/05/21 16:53:00 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:53:00 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:53:00 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:53:00 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:53:00 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:53:00 [INFO] TLS insecure mode: false
+2026/05/21 16:53:00 [INFO] Kafka Connect client initialized successfully
+2026-05-21T16:53:00.101+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371
+2026-05-21T16:53:00.102+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371
+2026-05-21T16:53:00.102+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371
+2026-05-21T16:53:00.102+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:00.102+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:00.134+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:53:00.135+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:00.135+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:00.135+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:00.135+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:00.170+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_req_id=4b32d7f0-2e7d-0205-cbe7-21309ec900fa tf_rpc=Configure tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026/05/21 16:53:00 [INFO] Initializing Kafka Connect client
+2026/05/21 16:53:00 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:53:00 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:53:00 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:53:00 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:53:00 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:53:00 [INFO] TLS insecure mode: false
+2026/05/21 16:53:00 [INFO] Kafka Connect client initialized successfully
+2026/05/21 16:53:00 [INFO] Reading connector: sqlite-sink
+2026/05/21 16:53:00 [INFO] Kafka Connect request: method=GET url=/connectors/{name} timeout=1m0s
+2026/05/21 16:53:00 [INFO] Kafka Connect response: method=GET url=http://localhost:8083/connectors/sqlite-sink status=200 duration=16.639625ms
+2026/05/21 16:53:00 [INFO] Connector sqlite-sink state refreshed
+2026-05-21T16:53:00.204+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:53:00.205+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3
+2026-05-21T16:53:00.205+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3
+2026-05-21T16:53:00.205+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:53:00.205+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:00.252+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_req_id=47263899-fb1b-01ac-9008-251b89721263 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_rpc=Configure
+2026/05/21 16:53:00 [INFO] Initializing Kafka Connect client
+2026/05/21 16:53:00 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:53:00 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:53:00 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:53:00 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:53:00 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:53:00 [INFO] TLS insecure mode: false
+2026/05/21 16:53:00 [INFO] Kafka Connect client initialized successfully
+2026-05-21T16:53:00.256+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:53:00.256+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:00.256+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:00.256+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:00.257+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:00.291+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3
+2026-05-21T16:53:00.291+0200 [DEBUG] sdk.helper_resource: Finished TestStep: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:53:00.291+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:00.291+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371
+2026-05-21T16:53:00.291+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:00.291+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:53:00.332+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371
+2026-05-21T16:53:00.335+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:00.335+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:00.335+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_step_number=3 test_name=TestAccConnectorConfigUpdate test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371
+2026-05-21T16:53:00.335+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:00.375+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_req_id=55dc6c39-f9aa-b132-7b49-a6094142fd89 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_rpc=Configure
+2026/05/21 16:53:00 [INFO] Initializing Kafka Connect client
+2026/05/21 16:53:00 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:53:00 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:53:00 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:53:00 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:53:00 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:53:00 [INFO] TLS insecure mode: false
+2026/05/21 16:53:00 [INFO] Kafka Connect client initialized successfully
+2026-05-21T16:53:00.378+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_req_id=a0d6972b-f964-31a5-cc49-9835c4726823 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_rpc=Configure
+2026/05/21 16:53:00 [INFO] Initializing Kafka Connect client
+2026/05/21 16:53:00 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:53:00 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:53:00 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:53:00 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:53:00 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:53:00 [INFO] TLS insecure mode: false
+2026/05/21 16:53:00 [INFO] Kafka Connect client initialized successfully
+2026/05/21 16:53:00 [INFO] Deleting connector: sqlite-sink
+2026/05/21 16:53:00 [INFO] Kafka Connect delete connector request: name=sqlite-sink
+2026/05/21 16:53:00 [INFO] Kafka Connect request: method=DELETE url=/connectors/{name} timeout=1m0s
+2026/05/21 16:53:00 [INFO] Kafka Connect response: method=DELETE url=http://localhost:8083/connectors/sqlite-sink status=204 duration=557.34275ms
+2026/05/21 16:53:00 [INFO] Kafka Connect delete connector completed: name=sqlite-sink status=204
+2026/05/21 16:53:00 [INFO] Kafka Connect request: method=GET url=/connectors/{name} timeout=1m0s
+2026/05/21 16:53:03 [INFO] Kafka Connect response: method=GET url=http://localhost:8083/connectors/sqlite-sink status=404 duration=2.103013334s
+2026/05/21 16:53:03 [ERROR] Kafka Connect error response: {"error_code":404,"message":"Connector sqlite-sink not found"}
+2026-05-21T16:53:03.065+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3117648371 test_step_number=3 test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:53:03.066+0200 [DEBUG] sdk.helper_resource: Finished TestCase: test_name=TestAccConnectorConfigUpdate
+2026-05-21T16:53:03.066+0200 [DEBUG] sdk.helper_resource: Starting TestCase: test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:53:03.066+0200 [DEBUG] sdk.helper_resource: Calling TestCase PreCheck: test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:53:03.066+0200 [DEBUG] sdk.helper_resource: Called TestCase PreCheck: test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:53:03.067+0200 [DEBUG] sdk.helper_resource: Found Terraform CLI: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:53:03.105+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:03.105+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:53:03.105+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:03.106+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_name=TestAccConnectorWithTimeouts tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:03.138+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:53:03.138+0200 [DEBUG] sdk.helper_resource: Starting TestSteps: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117
+2026-05-21T16:53:03.138+0200 [DEBUG] sdk.helper_resource: Starting TestStep: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1
+2026-05-21T16:53:03.138+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:53:03.138+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1
+2026-05-21T16:53:03.138+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:03.139+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:03.176+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_req_id=981f11cf-177d-4d85-59b2-3f93f01072b3 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_rpc=Configure
+2026/05/21 16:53:03 [INFO] Initializing Kafka Connect client
+2026/05/21 16:53:03 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:53:03 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:53:03 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:53:03 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:53:03 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:53:03 [INFO] TLS insecure mode: false
+2026/05/21 16:53:03 [INFO] Kafka Connect client initialized successfully
+2026-05-21T16:53:03.189+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1
+2026-05-21T16:53:03.190+0200 [DEBUG] sdk.helper_resource: Running Terraform CLI plan and apply: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:53:03.190+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:53:03.190+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:03.190+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117
+2026-05-21T16:53:03.191+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1
+2026-05-21T16:53:03.225+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_req_id=32ce85a5-cf7b-1b3e-b409-e6717115a0f6 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_rpc=Configure
+2026/05/21 16:53:03 [INFO] Initializing Kafka Connect client
+2026/05/21 16:53:03 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:53:03 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:53:03 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:53:03 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:53:03 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:53:03 [INFO] TLS insecure mode: false
+2026/05/21 16:53:03 [INFO] Kafka Connect client initialized successfully
+2026-05-21T16:53:03.260+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:53:03.260+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:03.260+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:03.260+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 test_name=TestAccConnectorWithTimeouts tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:03.261+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:53:03.293+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1
+2026-05-21T16:53:03.293+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1
+2026-05-21T16:53:03.293+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:03.293+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:53:03.294+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1
+2026-05-21T16:53:03.328+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_rpc=Configure tf_req_id=d634fea8-fb6f-47ac-a45e-0588583fe581 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026/05/21 16:53:03 [INFO] Initializing Kafka Connect client
+2026/05/21 16:53:03 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:53:03 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:53:03 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:53:03 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:53:03 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:53:03 [INFO] TLS insecure mode: false
+2026/05/21 16:53:03 [INFO] Kafka Connect client initialized successfully
+2026/05/21 16:53:03 [INFO] Kafka Connect create connector request: name=test-with-timeouts
+2026/05/21 16:53:03 [INFO] Kafka Connect request: method=POST url=/connectors timeout=1m0s
+2026/05/21 16:53:03 [INFO] Kafka Connect response: method=POST url=http://localhost:8083/connectors status=201 duration=56.816167ms
+2026/05/21 16:53:03 [INFO] Kafka Connect create connector completed: name=test-with-timeouts status=201
+2026/05/21 16:53:03 [INFO] Kafka Connect request: method=GET url=/connectors/{name} timeout=1m0s
+2026/05/21 16:53:05 [INFO] Kafka Connect response: method=GET url=http://localhost:8083/connectors/test-with-timeouts status=409 duration=1.614491084s
+2026/05/21 16:53:05 [ERROR] Kafka Connect error response: {"error_code":409,"message":"Cannot complete request momentarily due to stale configuration (typically caused by a concurrent config change)"}
+2026/05/21 16:53:05 [WARN] Kafka Connect retry triggered: status=409 method=GET url=http://localhost:8083/connectors/test-with-timeouts
+2026/05/21 16:53:05 [INFO] Kafka Connect request: method=GET url=/connectors/{name} timeout=1m0s
+2026/05/21 16:53:05 [INFO] Kafka Connect response: method=GET url=http://localhost:8083/connectors/test-with-timeouts status=200 duration=26.517875ms
+2026/05/21 16:53:05 [INFO] Created connector: test-with-timeouts
+2026/05/21 16:53:05 [INFO] Reading connector: test-with-timeouts
+2026/05/21 16:53:05 [INFO] Kafka Connect request: method=GET url=/connectors/{name} timeout=1m0s
+2026/05/21 16:53:05 [INFO] Kafka Connect response: method=GET url=http://localhost:8083/connectors/test-with-timeouts status=200 duration=25.6615ms
+2026/05/21 16:53:05 [INFO] Connector test-with-timeouts state refreshed
+2026-05-21T16:53:05.581+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1
+2026-05-21T16:53:05.582+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:53:05.582+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117
+2026-05-21T16:53:05.582+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:53:05.582+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:05.619+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117
+2026-05-21T16:53:05.620+0200 [DEBUG] sdk.helper_resource: Running Terraform CLI plan to check for perpetual differences: test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117
+2026-05-21T16:53:05.620+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:05.620+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:05.620+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1
+2026-05-21T16:53:05.620+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 test_name=TestAccConnectorWithTimeouts tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:53:05.657+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_req_id=85477720-3031-7d5c-1fc2-f99ae2c2ce43 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_rpc=Configure
+2026/05/21 16:53:05 [INFO] Initializing Kafka Connect client
+2026/05/21 16:53:05 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:53:05 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:53:05 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:53:05 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:53:05 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:53:05 [INFO] TLS insecure mode: false
+2026/05/21 16:53:05 [INFO] Kafka Connect client initialized successfully
+2026-05-21T16:53:05.663+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:53:05.663+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:05.663+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 test_name=TestAccConnectorWithTimeouts tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:05.663+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:05.663+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:05.697+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:53:05.697+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:05.697+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:05.697+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:53:05.698+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 test_name=TestAccConnectorWithTimeouts tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:05.737+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_req_id=c6a014e4-e143-eb0d-7f06-de555dfa0ab1 tf_rpc=Configure
+2026/05/21 16:53:05 [INFO] Initializing Kafka Connect client
+2026/05/21 16:53:05 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:53:05 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:53:05 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:53:05 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:53:05 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:53:05 [INFO] TLS insecure mode: false
+2026/05/21 16:53:05 [INFO] Kafka Connect client initialized successfully
+2026/05/21 16:53:05 [INFO] Reading connector: test-with-timeouts
+2026/05/21 16:53:05 [INFO] Kafka Connect request: method=GET url=/connectors/{name} timeout=1m0s
+2026/05/21 16:53:05 [INFO] Kafka Connect response: method=GET url=http://localhost:8083/connectors/test-with-timeouts status=200 duration=5.957291ms
+2026/05/21 16:53:05 [INFO] Connector test-with-timeouts state refreshed
+2026-05-21T16:53:05.752+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1
+2026-05-21T16:53:05.753+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_step_number=1 test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:53:05.754+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_step_number=1 test_name=TestAccConnectorWithTimeouts tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117
+2026-05-21T16:53:05.754+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:05.754+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1
+2026-05-21T16:53:05.789+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_rpc=Configure tf_req_id=54fc9fc8-3c43-8cfa-87d0-5548f386f1bc
+2026/05/21 16:53:05 [INFO] Initializing Kafka Connect client
+2026/05/21 16:53:05 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:53:05 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:53:05 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:53:05 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:53:05 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:53:05 [INFO] TLS insecure mode: false
+2026/05/21 16:53:05 [INFO] Kafka Connect client initialized successfully
+2026-05-21T16:53:05.795+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1
+2026-05-21T16:53:05.795+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:05.795+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117
+2026-05-21T16:53:05.795+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 test_name=TestAccConnectorWithTimeouts tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:05.796+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117
+2026-05-21T16:53:05.828+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:53:05.829+0200 [DEBUG] sdk.helper_resource: Finished TestStep: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 test_name=TestAccConnectorWithTimeouts
+2026-05-21T16:53:05.829+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117
+2026-05-21T16:53:05.829+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:05.829+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:53:05.829+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:05.863+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:53:05.863+0200 [DEBUG] sdk.helper_resource: Creating sdkv2 provider instance: test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 test_name=TestAccConnectorWithTimeouts tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_terraform_path=/opt/homebrew/bin/terraform
+2026-05-21T16:53:05.863+0200 [DEBUG] sdk.helper_resource: Created sdkv2 provider instance: test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 test_name=TestAccConnectorWithTimeouts tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:05.863+0200 [DEBUG] sdk.helper_resource: Starting sdkv2 provider instance server: test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117 test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect
+2026-05-21T16:53:05.863+0200 [DEBUG] sdk.helper_resource: Started sdkv2 provider instance server: test_step_number=1 tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117
+2026-05-21T16:53:05.901+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_rpc=Configure tf_req_id=5c08557c-8f1d-7774-06b5-1382e4c06062
+2026/05/21 16:53:05 [INFO] Initializing Kafka Connect client
+2026/05/21 16:53:05 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:53:05 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:53:05 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:53:05 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:53:05 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:53:05 [INFO] TLS insecure mode: false
+2026/05/21 16:53:05 [INFO] Kafka Connect client initialized successfully
+2026-05-21T16:53:05.904+0200 [WARN]  sdk.helper_schema: Previously configured provider being re-configured. This can cause issues in concurrent testing if the configurations are not equal.: tf_rpc=Configure tf_provider_addr=registry.terraform.io/hashicorp/kafka-connect tf_req_id=2f92e084-ef7d-3705-439c-18b2efb8ba77
+2026/05/21 16:53:05 [INFO] Initializing Kafka Connect client
+2026/05/21 16:53:05 [INFO] Kafka Connect URL from provider config: "http://localhost:8083"
+2026/05/21 16:53:05 [INFO] Kafka Connect client timeout: 1m0s
+2026/05/21 16:53:05 [INFO] Creating Kafka Connect REST client
+2026/05/21 16:53:05 [INFO] Kafka Connect URL: http://localhost:8083
+2026/05/21 16:53:05 [INFO] Kafka Connect HTTP timeout: 1m0s
+2026/05/21 16:53:05 [INFO] TLS insecure mode: false
+2026/05/21 16:53:05 [INFO] Kafka Connect client initialized successfully
+2026/05/21 16:53:05 [INFO] Deleting connector: test-with-timeouts
+2026/05/21 16:53:05 [INFO] Kafka Connect delete connector request: name=test-with-timeouts
+2026/05/21 16:53:05 [INFO] Kafka Connect request: method=DELETE url=/connectors/{name} timeout=1m0s
+2026/05/21 16:53:06 [INFO] Kafka Connect response: method=DELETE url=http://localhost:8083/connectors/test-with-timeouts status=204 duration=555.912083ms
+2026/05/21 16:53:06 [INFO] Kafka Connect delete connector completed: name=test-with-timeouts status=204
+2026/05/21 16:53:06 [INFO] Kafka Connect request: method=GET url=/connectors/{name} timeout=1m0s
+2026/05/21 16:53:08 [INFO] Kafka Connect response: method=GET url=http://localhost:8083/connectors/test-with-timeouts status=404 duration=1.804914375s
+2026/05/21 16:53:08 [ERROR] Kafka Connect error response: {"error_code":404,"message":"Connector test-with-timeouts not found"}
+2026-05-21T16:53:08.287+0200 [DEBUG] sdk.helper_resource: Stopping providers: test_step_number=1 test_name=TestAccConnectorWithTimeouts test_terraform_path=/opt/homebrew/bin/terraform test_working_directory=/var/folders/vb/9r8f2_9j06x3jr6r18b4_0rr0000gn/T/plugintest3967804117
+2026-05-21T16:53:08.287+0200 [DEBUG] sdk.helper_resource: Finished TestCase: test_name=TestAccConnectorWithTimeouts
+2026/05/21 16:53:08 [INFO] Kafka Connect rebalance in progress; retrying after 0.25s: rebalance in progress
+2026/05/21 16:53:08 [INFO] Kafka Connect rebalance in progress; retrying after 0.74s: rebalance in progress
+2026/05/21 16:53:09 [INFO] Kafka Connect rebalance in progress; retrying after 0.26s: rebalance in progress
+2026/05/21 16:53:09 [INFO] Kafka Connect rebalance in progress; retrying after 0.58s: rebalance in progress
+2026/05/21 16:53:10 [INFO] Kafka Connect rebalance in progress; retrying after 1.17s: rebalance in progress
+2026/05/21 16:53:11 [INFO] Kafka Connect rebalance in progress; retrying after 0.34s: rebalance in progress
+2026/05/21 16:53:11 [INFO] Kafka Connect rebalance in progress; retrying after 0.69s: rebalance in progress
+2026/05/21 16:53:12 [INFO] Kafka Connect rebalance in progress; retrying after 1.03s: rebalance in progress
+2026/05/21 16:53:13 [INFO] Kafka Connect rebalance in progress; retrying after 2.59s: rebalance in progress
