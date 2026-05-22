@@ -380,32 +380,23 @@ func convertConfigValueToString(value interface{}) string {
 }
 
 func tryUntil(exec func() bool, limit time.Duration) bool {
-	timeLimit := time.After(limit)
+	timeout := time.NewTimer(limit)
+	defer timeout.Stop()
 
-	run := true
-	defer func() {
-		run = false
-	}()
+	ticker := time.NewTicker(1 * time.Second)
+	defer ticker.Stop()
 
-	success := make(chan bool)
-
-	go func() {
-		for run {
-			if exec() {
-				success <- true
-				return
-			}
-
-			time.Sleep(1 * time.Second)
+	for {
+		if exec() {
+			return true
 		}
-	}()
 
-	select {
-	case <-timeLimit:
-		return false
+		select {
+		case <-timeout.C:
+			return false
 
-	case <-success:
-		return true
+		case <-ticker.C:
+		}
 	}
 }
 
