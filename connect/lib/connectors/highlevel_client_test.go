@@ -87,15 +87,44 @@ func Test_tryUntil_When_Success(t *testing.T) {
 }
 
 func Test_tryUntil_When_Timeout(t *testing.T) {
+	start := time.Now()
+
 	result := tryUntil(
 		func() bool {
-			time.Sleep(200 * time.Millisecond)
-			return true
+			return false
 		},
 		100*time.Millisecond,
 	)
 
+	duration := time.Since(start)
+
 	assert.False(t, result)
+
+	assert.GreaterOrEqual(
+		t,
+		duration,
+		100*time.Millisecond,
+	)
+}
+
+func Test_tryUntil_When_Eventually_Success(t *testing.T) {
+	counter := 0
+
+	result := tryUntil(
+		func() bool {
+			counter++
+
+			if counter >= 3 {
+				return true
+			}
+
+			return false
+		},
+		5*time.Second,
+	)
+
+	assert.True(t, result)
+	assert.Equal(t, 3, counter)
 }
 
 func Test_DeployConnector_When_Already_Up_To_Date(t *testing.T) {
