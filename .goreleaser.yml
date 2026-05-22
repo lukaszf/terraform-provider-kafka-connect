@@ -1,271 +1,81 @@
-############################################################
-# GoReleaser Configuration
-#
-# Documentation:
-# https://goreleaser.com
-#
-# Used for:
-# - Building Terraform provider binaries
-# - Packaging release artifacts
-# - Generating SHA256 checksums
-# - Signing artifacts with GPG
-# - Publishing GitHub releases
-############################################################
-
 version: 2
-
-############################################################
-# Project Name
-#
-# Used in:
-# - binary names
-# - archives
-# - checksums
-############################################################
 
 project_name: terraform-provider-kafka-connect
 
-############################################################
-# Commands executed before build
-############################################################
-
 before:
   hooks:
-
-    # Ensure go.mod / go.sum are clean
     - go mod tidy
-
-############################################################
-# Build Configuration
-############################################################
 
 builds:
   - id: terraform-provider
-
-    ########################################################
-    # Binary filename
-    #
-    # Example:
-    # terraform-provider-kafka-connect_v1.0.0
-    ########################################################
     binary: "{{ .ProjectName }}_v{{ .Version }}"
-
-    ########################################################
-    # Build environment variables
-    ########################################################
     env:
-
-      # Disable CGO for static binaries
       - CGO_ENABLED=0
-
-    ########################################################
-    # Additional Go compiler flags
-    ########################################################
     flags:
-
-      # Remove local filesystem paths from binaries
-      # Improves reproducibility
       - -trimpath
-
-    ########################################################
-    # Linker flags
-    ########################################################
     ldflags:
-
-      # -s removes symbol table
-      # -w removes debug information
-      # Produces smaller binaries
       - "-s -w"
-
-    ########################################################
-    # Use Git commit timestamp for reproducible builds
-    ########################################################
     mod_timestamp: "{{ .CommitTimestamp }}"
-
-    ########################################################
-    # Target operating systems
-    ########################################################
     goos:
       - linux
       - darwin
       - windows
       - freebsd
-
-    ########################################################
-    # Target CPU architectures
-    ########################################################
     goarch:
       - amd64
       - arm64
       - arm
       - "386"
-
-    ########################################################
-    # ARM versions
-    ########################################################
     goarm:
       - "7"
-
-    ########################################################
-    # Ignore unsupported platform combinations
-    ########################################################
     ignore:
-
-      # macOS does not support 32-bit anymore
       - goos: darwin
         goarch: "386"
-
-      # Unsupported combination
       - goos: freebsd
         goarch: arm64
-
-      # Terraform Registry currently does not require this
       - goos: windows
         goarch: arm64
 
-############################################################
-# Archive Packaging
-############################################################
-
 archives:
   - id: default
-
-    ########################################################
-    # Archive format
-    #
-    # Terraform Registry requires ZIP archives
-    ########################################################
     formats:
       - zip
-
-    ########################################################
-    # Archive filename
-    #
-    # Example:
-    # terraform-provider-kafka-connect_1.0.0_linux_amd64.zip
-    ########################################################
     name_template: >-
       {{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}
 
-############################################################
-# SHA256 Checksums
-############################################################
-
 checksum:
-
-  ##########################################################
-  # Checksum file name
-  ##########################################################
   name_template: "{{ .ProjectName }}_{{ .Version }}_SHA256SUMS"
-
-  ##########################################################
-  # Hashing algorithm
-  ##########################################################
   algorithm: sha256
-
-############################################################
-# GPG Signing
-############################################################
 
 signs:
   - artifacts: checksum
-
-    ########################################################
-    # GPG command arguments
-    ########################################################
+    cmd: gpg
     args:
-
-      # Non-interactive mode
       - "--batch"
-
-      # Automatically answer yes
       - "--yes"
-
-      # ASCII armored signature (.asc)
-      - "--armor"
-
-      ######################################################
-      # GPG key fingerprint from GitHub Actions env
-      ######################################################
-      - "-u"
+      - "--pinentry-mode"
+      - "loopback"
+      - "--passphrase"
+      - "{{ .Env.PASSPHRASE }}"
+      - "--local-user"
       - "{{ .Env.GPG_FINGERPRINT }}"
-
-      ######################################################
-      # Output signature file
-      ######################################################
       - "--output"
       - "${signature}"
-
-      ######################################################
-      # Detached signature
-      ######################################################
       - "--detach-sign"
-
-      ######################################################
-      # Artifact to sign
-      ######################################################
       - "${artifact}"
 
-############################################################
-# Snapshot Builds
-#
-# Used for:
-# - CI testing
-# - non-tag builds
-# - development builds
-############################################################
-
 snapshot:
-
-  ##########################################################
-  # Snapshot version format
-  #
-  # Example:
-  # 1.0.1-next
-  ##########################################################
   version_template: "{{ incpatch .Version }}-next"
-
-############################################################
-# GitHub Release Configuration
-############################################################
 
 release:
   github:
-
-    ########################################################
-    # GitHub repository owner
-    ########################################################
     owner: lukaszf
-
-    ########################################################
-    # GitHub repository name
-    ########################################################
     name: terraform-provider-kafka-connect
-
-  ##########################################################
-  # Publish release immediately
-  ##########################################################
   draft: false
-
-  ##########################################################
-  # Replace existing draft releases
-  ##########################################################
   replace_existing_draft: true
 
-############################################################
-# Changelog Generation
-############################################################
-
 changelog:
-
-  ##########################################################
-  # Sort commits ascending
-  ##########################################################
   sort: asc
-
-  ##########################################################
-  # Exclude commit types from changelog
-  ##########################################################
   filters:
     exclude:
       - "^docs:"
