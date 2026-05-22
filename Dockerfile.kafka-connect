@@ -1,0 +1,11 @@
+# Dockerfile.kafka-connect
+FROM confluentinc/cp-kafka-connect:8.2.1
+
+USER root
+
+RUN confluent-hub install --no-prompt confluentinc/kafka-connect-jdbc:latest
+
+RUN curl -L -o /usr/share/confluent-hub-components/confluentinc-kafka-connect-jdbc/lib/sqlite-jdbc.jar \
+    https://github.com/xerial/sqlite-jdbc/releases/download/3.46.1.0/sqlite-jdbc-3.46.1.0.jar
+
+USER appuser
